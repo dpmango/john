@@ -1,15 +1,16 @@
 include _mixins
 doctype html
-html(lang="ru")
+html(lang="en")
   head
     include _head
 
-  body(class=bodyClass)
+  body(class=bodyClass)#barba-wrapper
     .page(class=outClass)
       .page__content
         block header
           include ../components/_header
-        block content
+        main.barba-container
+          block content
 
       block footer
         include ../components/_footer

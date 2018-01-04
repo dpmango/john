@@ -72,6 +72,8 @@ $(document).ready(function(){
   // READY - triggered when PJAX DONE
   ////////////
   function pageReady(){
+    legacySupport();
+
     initPopups();
     initSliders();
     runScrollMonitor();
@@ -91,31 +93,95 @@ $(document).ready(function(){
   //////////
   // COMMON
   //////////
+  function legacySupport(){
+    // svg support for laggy browsers
+    svg4everybody();
 
-  // svg support for laggy browsers
-  svg4everybody();
+    // Viewport units buggyfill
+    window.viewportUnitsBuggyfill.init({
+      force: false,
+      refreshDebounceWait: 250,
+      appendToBody: true
+    });
+  }
 
-  // Viewport units buggyfill
-  window.viewportUnitsBuggyfill.init({
-    force: true,
-    hacks: window.viewportUnitsBuggyfillHacks,
-    refreshDebounceWait: 250,
-    appendToBody: true
+ 	// CLICK HANDLERS
+	_document
+    // prevent empty # hash links behaviour
+    .on('click', '[href="#"]', function(e) {
+  		e.preventDefault();
+  	})
+  	// Smoth scroll to section
+  	.on('click', 'a[href^="#section"]', function() {
+      var el = $(this).attr('href');
+      $('body, html').animate({
+          scrollTop: $(el).offset().top}, 1000);
+      return false;
+  	});
+
+
+  // HAMBURGER TOGGLER
+  _document.on('click', '[js-hamburger]', function(){
+    $(this).toggleClass('is-active');
+    $('.page-nav').toggleClass('is-active');
+
+    blockScroll();
   });
 
+  var preventKeys = {
+    37: 1, 38: 1, 39: 1, 40: 1
+  };
 
- 	// Prevent # behavior
-	$('[href="#"]').click(function(e) {
-		e.preventDefault();
-	});
+  function preventDefault(e) {
+    e = e || window.event;
+    if (e.preventDefault)
+      e.preventDefault();
+    e.returnValue = false;
+  }
 
-	// Smoth scroll
-	$('a[href^="#section"]').click( function() {
-        var el = $(this).attr('href');
-        $('body, html').animate({
-            scrollTop: $(el).offset().top}, 1000);
-        return false;
-	});
+  function preventDefaultForScrollKeys(e) {
+    if (preventKeys[e.keyCode]) {
+      preventDefault(e);
+      return false;
+    }
+  }
+
+  function disableScroll() {
+    if (window.addEventListener) // older FF
+      window.addEventListener('DOMMouseScroll', preventDefault, false);
+    window.onwheel = preventDefault; // modern standard
+    window.onmousewheel = document.onmousewheel = preventDefault; // older browsers, IE
+    window.ontouchmove = preventDefault; // mobile
+    document.onkeydown = preventDefaultForScrollKeys;
+  }
+
+  function enableScroll() {
+    if (window.removeEventListener)
+      window.removeEventListener('DOMMouseScroll', preventDefault, false);
+    window.onmousewheel = document.onmousewheel = null;
+    window.onwheel = null;
+    window.ontouchmove = null;
+    document.onkeydown = null;
+  }
+
+  function blockScroll(unlock) {
+    if ($('[js-hamburger]').is('.is-active')) {
+      disableScroll();
+    } else {
+      enableScroll();
+    }
+
+    if (unlock) {
+      enableScroll();
+    }
+  };
+
+  function closeMenu() {
+    blockScroll(true);
+    $('[js-hamburger]').removeClass('is-active');
+    $('.page-nav').removeClass('is-active');
+  }
+
 
   // FOOTER REVEAL
   function revealFooter() {
@@ -146,7 +212,7 @@ $(document).ready(function(){
   // HEADER SCROLL
   // add .header-static for .page or body
   // to disable sticky header
-  if ( $('.header-static').length == 0 ){
+  if ( $('.header-static').length !== 0 ){
     _window.on('scroll', throttle(function() {
       var vScroll = _window.scrollTop();
       var header = $('.header').not('.header--static');
@@ -167,12 +233,6 @@ $(document).ready(function(){
     }), 10);
   }
 
-  // HAMBURGER TOGGLER
-  $('[js-hamburger]').on('click', function(){
-    $('.hamburger').toggleClass('active');
-    $('.mobile-navi').toggleClass('active');
-  });
-
   // SET ACTIVE CLASS IN HEADER
   // * could be removed in production and server side rendering
   // user .active for li instead
@@ -182,13 +242,6 @@ $(document).ready(function(){
     } else {
       $(val).removeClass('active')
     }
-  });
-
-
-  // VIDEO PLAY
-  $('.promo-video .icon').on('click', function(){
-    $(this).closest('.promo-video').toggleClass('playing');
-    $(this).closest('.promo-video').find('iframe').attr("src", $("iframe").attr("src").replace("autoplay=0", "autoplay=1"));
   });
 
 
@@ -408,7 +461,7 @@ $(document).ready(function(){
   // BARBA PJAX
   //////////
 
-  Barba.Pjax.Dom.containerClass = "page";
+  Barba.Pjax.Dom.containerClass = "barba-container";
 
   var FadeTransition = Barba.BaseTransition.extend({
     start: function() {
@@ -452,7 +505,7 @@ $(document).ready(function(){
 
     // close mobile menu
     if ( _window.width() < bp.mobile ){
-      closeMobileMenu();
+      closeMenu();
     }
   });
 
