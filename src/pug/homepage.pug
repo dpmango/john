@@ -1,8 +1,25 @@
 ---
-title: Homepage title
+title: Homepage JK
 bodyClass: homepage
 ---
 extends shared/_layout
 block content
   
-  
+  // INTRO :: START
+  .intro
+    .intro__top
+      .intro__name
+        .intro__title front <br> end web <br> devEloper
+      .intro__portfolio
+        img(src="img/featured_project.png" srcset="img/featured_project@2x.png 2x")
+        .intro__portfolio-cta
+          a(href="#").link.link--green
+            span PORTFOLIO
+    .intro__bottom
+      .intro__text
+        .intro__text-container
+          p I'm a freelance front-end web developer based in London. With fourteen years of experience I develop responsive, high-performance websites using HTML5, CSS, and JavaScript.
+      
+      .intro__bottom-cta
+        a(href="#").link.link--blue
+          span About me

@@ -3,5 +3,19 @@ ProjectTitle: Project-name
 PageList:
 - file: homepage.html
   ready: 100
-- file: page.html
+- file: portfolio.html
+  ready: 0
+- file: portfolio-project.html
+  ready: 0
+- file: portfolio-app.html
+  ready: 0
+- file: about.html
+  ready: 0
+- file: availability.html
+  ready: 0
+- file: blog.html
+  ready: 0
+- file: blog-article.html
+  ready: 0
+- file: contact.html
   ready: 0
