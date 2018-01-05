@@ -74,6 +74,9 @@ $(document).ready(function(){
   function pageReady(){
     legacySupport();
 
+    headerScrollListener();
+    _window.on('scroll', throttle(headerScrollListener, 10));
+
     initPopups();
     initSliders();
     runScrollMonitor();
@@ -177,7 +180,7 @@ $(document).ready(function(){
   };
 
   function closeMenu() {
-    blockScroll(true);
+    blockScroll(true); // true is for the unlock option
     $('[js-hamburger]').removeClass('is-active');
     $('.page-nav').removeClass('is-active');
   }
@@ -212,12 +215,12 @@ $(document).ready(function(){
   // HEADER SCROLL
   // add .header-static for .page or body
   // to disable sticky header
-  if ( $('.header-static').length !== 0 ){
-    _window.on('scroll', throttle(function() {
+  function headerScrollListener(){
+    if ( _document.height() / _window.height() > 2.5 ){
       var vScroll = _window.scrollTop();
       var header = $('.header').not('.header--static');
       var headerHeight = header.height();
-      var heroHeight = $('.hero').outerHeight() - headerHeight;
+      var heroHeight = _document.find('.barba-container').children().first().outerHeight() - headerHeight;
 
       if ( vScroll > headerHeight ){
         header.addClass('header--transformed');
@@ -225,12 +228,12 @@ $(document).ready(function(){
         header.removeClass('header--transformed');
       }
 
-      if ( vScroll > heroHeight ){
+      if ( vScroll > heroHeight - headerHeight){
         header.addClass('header--fixed');
       } else {
         header.removeClass('header--fixed');
       }
-    }), 10);
+    }
   }
 
   // SET ACTIVE CLASS IN HEADER

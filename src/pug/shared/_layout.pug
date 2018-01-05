@@ -5,10 +5,12 @@ html(lang="en")
     include _head
 
   body(class=bodyClass)#barba-wrapper
+    // MAIN WRAPPER :: START
     .page(class=outClass)
       .page__content
         block header
           include ../components/_header
+        // MAIN :: START
         main.barba-container
           block content
 
