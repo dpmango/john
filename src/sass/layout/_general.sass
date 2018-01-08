@@ -18,6 +18,7 @@ ul
     display: inline-block
 
 body, html
+  // position: relative
   background: white
   color: $fontColor
   font-family: 'Circular Std', 'Helvetica Neue', Helvetica, Arial, sans-serif
@@ -30,14 +31,25 @@ body, html
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
 
+// html
+//   position: relative
+
 .page
+  position: relative
   display: flex
   flex-direction: column
   min-height: 100vh
+  overflow: hidden
   &__content
     // header abs offset
     padding-top: 150px
-    flex: 1 1 auto
+    flex: 1 0 auto
+    display: flex
+    flex-direction: column
+
+.barba-container
+  flex: 1 0 auto
+  // position: relative
 
 +rmin($mobile)
   .page
@@ -65,6 +77,7 @@ body, html
   .container
     padding-left: 70px
     padding-right: 70px
+
 
 // TEMP
 .dev-bp-debug

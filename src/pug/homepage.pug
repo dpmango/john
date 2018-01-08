@@ -45,10 +45,10 @@ block content
   .contact.wow
     .contact__wrapper
       .contact__title
-        .contact__title-parallax(js-rellax data-rellax-speed='-1.5')
+        .contact__title-parallax(js-rellax data-rellax-speed='-3.5')
         span get in touch for a chat
       .contact__credentials
-        .contact__credentials-parallax(js-rellax data-rellax-speed="-2")
+        .contact__credentials-parallax(js-rellax data-rellax-speed="2")
         .contact__credentials-container
           p Feel free to get in touch, I'm always happy to discuss and advise on your project or development needs.
           .contact__credentials-contacts
@@ -57,4 +57,14 @@ block content
       .contact__cta-mobile
         a(href="#").link.link--red
             span contact
-              
+
+  // HOME LINES :: START
+  .home-lines
+    .home-lines__wrapper
+      picture
+        source(media="(max-width: 992px)" srcset="img/heroLinesBg.png 1x, img/heroLinesBg@2x.png 2x")
+        source(media="(min-width: 992px)" srcset="img/heroLinesBgDesktop.png 1x, img/heroLinesBgDesktop@2x.png 2x")
+        img.home-lines__bg(src="img/heroLinesBg.png")
+      //- .home-lines__first
+      //- .home-lines__second
+      //- .home-lines__third
