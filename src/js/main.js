@@ -460,6 +460,16 @@ $(document).ready(function(){
     },300);
   }
 
+
+  //////////
+  // PARALLAX
+  //////////
+
+  var rellax = new Rellax('[js-rellax]', {
+    speed: -2,
+    center: true
+  });
+
   //////////
   // BARBA PJAX
   //////////

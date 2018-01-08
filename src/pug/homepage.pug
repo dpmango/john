@@ -8,7 +8,7 @@ block content
   // INTRO :: START
   .intro
     // top
-    .intro__top
+    .intro__top.wow
       .intro__name
         .intro__title front <br> end web <br> devEloper
       .intro__portfolio
@@ -17,8 +17,9 @@ block content
           a(href="#").link.link--green
             span PORTFOLIO
     // bottom
-    .intro__bottom
+    .intro__bottom.wow
       .intro__text
+        .intro__text-parallax(js-rellax data-rellax-speed="-2" data-rellax-percentage="0.5")
         .intro__text-container
           p I'm a freelance front-end web developer based in London. With fourteen years of experience I develop responsive, high-performance websites using HTML5, CSS, and JavaScript.
       .intro__bottom-cta
@@ -26,9 +27,10 @@ block content
           span About me
   
   // avail :: START
-  .avail
+  .avail.wow
     .container
       .avail__title
+        .avail__title-parallax(js-rellax data-rellax-speed="1.5")
         span current <br> availability
       .avail__status
         span I currently have
@@ -40,11 +42,13 @@ block content
           span availability
             
   // CONTACT :: START
-  .contact
+  .contact.wow
     .contact__wrapper
       .contact__title
+        .contact__title-parallax(js-rellax data-rellax-speed='-1.5')
         span get in touch for a chat
       .contact__credentials
+        .contact__credentials-parallax(js-rellax data-rellax-speed="-2")
         .contact__credentials-container
           p Feel free to get in touch, I'm always happy to discuss and advise on your project or development needs.
           .contact__credentials-contacts
