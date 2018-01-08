@@ -14,7 +14,7 @@
       "pre-push": "surge --project ./dist --domain john-kavanagh.surge.sh"
     }
   },
-  "author": "Sergey Khmelevskoy <sergey@khmelevskoy.co>",
+  "author": "",
   "license": "ISC",
   "dependencies": {
     "autoprefixer": "^7.1.2",

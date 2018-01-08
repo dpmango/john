@@ -94,6 +94,28 @@ $(document).ready(function(){
 
 
   //////////
+  // HANDLERBARS
+  //////////
+  var source   = document.getElementById("js-homepage").innerHTML;
+  var template = Handlebars.compile(source);
+  var context = (function () {
+    var context = null;
+    $.ajax({
+      'async': false,
+      'global': false,
+      'url': 'json/home.json',
+      'dataType': "json",
+      'success': function (data) {
+        context = data;
+      }
+    });
+    return context;
+  })();
+  var html = template(context);
+
+  $("#js-homepage").prepend(html);
+
+  //////////
   // COMMON
   //////////
   function legacySupport(){
