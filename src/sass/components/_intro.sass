@@ -25,7 +25,7 @@
     &::after
       display: inline-block
       content: ' '
-      size: 13px 3px
+      size: 0.43em 0.1em
       background: currentColor
       transform: translate(0px,4px)
 
@@ -80,3 +80,65 @@
       font-size: 15px
       letter-spacing: 0.04em
       padding-left: 25px
+
++rmin($mobile)
+  .intro
+    &__name
+      padding-left: 50px
+      padding-top: 50px
+    &__title
+      font-size: 45px
+    &__portfolio
+      margin-top: 35px
+      margin-bottom: -75px
+
++rmin($tablet)
+  .intro
+    &__title
+      font-size: 65px
+
++rmin($desktop)
+  .intro
+    &__name
+      padding-left: 120px
+      padding-top: 120px
+    &__title
+      font-size: 80px
+      line-height: 1.1
+    &__portfolio
+      margin-top: 50px
+      margin-bottom: -80px
+      &-cta
+        bottom: -120px
+        right: 10vw
+
+    &__bottom
+      flex-direction: row-reverse
+      padding-left: 80px
+      &-cta
+        padding-top: 5px
+    &__text
+      padding-top: 0
+      //margin-top: -.5em
+      margin-right: auto
+      &-parallax
+        size: 85px
+      &-container
+        font-size: 18px
+        p
+          margin: 0
+          // padding-top: 5px
+
++rmin($wide)
+  .intro
+    &__name
+      padding-top: 160px
+      padding-left: 180px
+    &__title
+      font-size: 114px
+      line-height: 1
+    &__portfolio
+      margin-top: 70px
+      margin-bottom: -100px
+    &__bottom
+      padding-left: 130px

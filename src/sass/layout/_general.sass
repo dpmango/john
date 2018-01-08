@@ -39,6 +39,16 @@ body, html
     padding-top: 150px
     flex: 1 1 auto
 
++rmin($mobile)
+  .page
+    &__content
+      padding-top: 180px
+
++rmin($desktop)
+  .page
+    &__content
+      padding-top: 220px
+
 .container
   max-width: 1200px
   margin-left: auto
@@ -46,6 +56,15 @@ body, html
   padding-left: 30px
   padding-right: 30px
 
++rmin($mobile)
+  .container
+    padding-left: 50px
+    padding-right: 50px
+
++rmin($desktop)
+  .container
+    padding-left: 70px
+    padding-right: 70px
 
 // TEMP
 .dev-bp-debug
