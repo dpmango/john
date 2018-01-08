@@ -26,6 +26,9 @@
     span
       position: relative
       z-index: 2
+  &__bottom
+    display: flex
+    flex-direction: column
   &__status
     position: relative
     z-index: 2
@@ -58,3 +61,40 @@
         margin-right: -7px
   &__cta
     text-align: center
+
++rmin($mobile)
+  .avail
+    margin-top: 100px
+    &__title
+      font-size: 45px
+      &-parallax
+        max-width: 350px
+    &__status
+      > span
+        font-size: 16px
+      &-line
+        font-size: 30px
+
++rmin($desktop)
+  .avail
+    margin-top: 140px
+    &__title
+      font-size: 78px
+      margin-right: 60px
+      &-parallax
+        max-width: 470px
+    &__bottom
+      margin-top: 50px
+      padding-right: 60px
+      flex-direction: row
+    &__status
+      margin: 0
+      margin-left: auto
+      > span
+        font-size: 18px
+      &-line
+        font-size: 38px
+    &__cta
+      padding-top: 5px
+      margin-right: 28%
+      margin-left: 15%
