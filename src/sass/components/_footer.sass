@@ -60,3 +60,27 @@
     flex: 0 0 auto
     margin-left: 25px
     font-size: 40px
+
++rmin($tablet)
+  .footer
+    &__wrapper
+      flex-direction: row
+      align-items: center
+    &__links
+
+    &__bottom
+      margin-left: auto
+      &::before
+        display: none
+    &__copy
+      br
+        display: none
+
++rmin($desktop)
+  .footer
+    &__wrapper
+      padding-left: 80px
+      padding-right: 80px
+    &__links
+      a
+        margin-right: 60px

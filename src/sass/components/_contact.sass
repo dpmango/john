@@ -7,6 +7,7 @@
     display: flex
     flex-direction: column
   &__title
+    flex: 0 1 auto
     max-width: 50vw
     position: relative
     padding: 1em 0 1em 30px
@@ -30,8 +31,8 @@
     span
       position: relative
       z-index: 2
-
   &__credentials
+    flex: 0 1 auto
     max-width: 240px
     margin-left: auto
     position: relative
@@ -76,15 +77,72 @@
           &::after
             right: 100%
 
+
+  &__cta-desktop
+    display: none
+    text-align: right
+    margin-right: .2em
+
   &__cta-mobile
     margin-top: 30px
     text-align: center
 
 
++rmin($mobile)
+  .contact
+    &__title
+      font-size: 48px
+      &-parallax
+        max-width: 180px
+    &__credentials
+      padding-right: 50px
+      max-width: 300px
+      &-container
+        font-size: 16px
+      &-contacts
+        a
+          font-size: 16px
 
 +rmin($tablet)
   .contact
+    margin-top: 100px
+    margin-bottom: 90px
     &__wrapper
       flex-direction: row
+      align-items: flex-end
+    &__title
+
+    &__credentials
+      flex: 0 1 auto
     &__cta-mobile
       display: none
+    &__cta-desktop
+      display: block
+
++rmin($desktop)
+  .contact
+    margin-top: 130px
+    margin-bottom: 300px
+    &__title
+      padding: .7em 0 .7em 180px
+      font-size: 78px
+      &-parallax
+        width: 28vw
+        max-width: 410px
+    &__credentials
+      padding-top: 120px
+      margin-bottom: -150px
+      max-width: 520px
+      &-parallax
+        size: 155px 180px
+      &-container
+        font-size: 18px
+        padding-left: 90px
+        p
+          max-width: 250px
+      &-contacts
+        a
+          font-size: 20px
+          margin-bottom: .5em
+          &.contact__credentials-phone
+            font-size: 36px
