@@ -3,7 +3,7 @@
     display: flex
   &__name
     position: relative
-    width: 85%
+    width: 86%
     padding-left: 30px
     padding-top: 30px
     &::before
@@ -31,7 +31,7 @@
 
   &__portfolio
     position: relative
-    width: 15%
+    width: 14%
     margin-top: 25px
     margin-bottom: -60px
     &::before
@@ -40,12 +40,22 @@
       position: absolute 0
       z-index: 1
       background: $colorGreen
+    &::after
+      display: inline-block
+      content: ' '
+      position: absolute
+      right: 0
+      bottom: 0
+      top: 50%
+      width: calc(100% + 6vw)
+      z-index: 1
+      background: $colorGreen
     img
       position: absolute
       right: 0
       top: 5%
       width: 35vw
-      // max-width: 230%
+      max-width: 400px
       z-index: 5
     &-cta
       position: absolute
@@ -100,14 +110,20 @@
 +rmin($desktop)
   .intro
     &__name
+      width: 88%
       padding-left: 120px
       padding-top: 120px
     &__title
       font-size: 80px
       line-height: 1.1
     &__portfolio
+      width: 12%
       margin-top: 50px
       margin-bottom: -80px
+      &::after
+        width: calc(100% + 4vw)
+      img
+        width: 32vw
       &-cta
         bottom: -120px
         right: 10vw
@@ -145,6 +161,8 @@
     &__portfolio
       margin-top: 70px
       margin-bottom: -100px
+      img
+        width: 28vw
     &__bottom
       padding-left: 130px
     &__text

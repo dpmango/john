@@ -11,23 +11,42 @@
 
 .portfolio-item
   flex: 0 0 auto
+  min-width: 1px
+  min-height: 1px
+  width: 100%
   margin-bottom: 20px
   &__name
+    max-width: 300px
     font-size: 22px
     letter-spacing: 0.22em
     font-weight: 500
     line-height: 1.27
     text-transform: uppercase
     margin-bottom: 10px
+    word-spacing: 100vw
   &__short
+    max-width: 300px
     font-size: 14px
+    line-height: 1.42
+    letter-spacing: 0.04em
 
   &__figure
-    margin-top: 25px
+    position: relative
+    margin-top: 35px
     &-bg
-      size: 210px 120px
-      &--blue
-        background-color: $colorBlue
+      position: absolute
+      top: 0
+      left: 0
+      width: 68%
+      height: 50%
+      z-index: 1
+  &__img-holder
+    position: relative
+    z-index: 2
+    padding-top: 4%
+    transform: translateX(11%)
+    img
+      max-width: 100%
 
 +rmin($tablet)
   .portfolio-item
