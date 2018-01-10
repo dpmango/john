@@ -1,0 +1,21 @@
+---
+title: Availability
+---
+extends shared/_layout
+block content
+  
+  // AVAIL :: START
+  .avail.wow
+    .container
+      .avail__title
+        .avail__title-parallax(js-rellax data-rellax-speed="1.5")
+        span current <br> availability
+      .avail__bottom
+        .avail__status
+          span I currently have
+          .avail__status-line.avail__status-line--limited
+            span LIMITED
+          span availability until Feb 2017.
+        .avail__cta
+          a(href="#").link.link--yellow
+            span availability

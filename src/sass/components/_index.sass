@@ -40,4 +40,57 @@
 +rmin($desktop)
   .link
     font-size: 20px
-    
+
+
+// COLOR MODIFIERS
+.--bg-blue
+  background-color: $colorBlue
+.--bg-green
+  background-color: $colorGreen
+.--bg-yellow
+    background-color: $colorYellow
+.--bg-red
+  background-color: $colorRed
+
+
+
+.main-title
+  position: relative
+  width: 75vw
+  max-width: 880px
+  margin-top: 50px
+  padding-top: 2em
+  padding-bottom: 2em
+  &-parallax
+    display: inline-block
+    content: ' '
+    position: absolute
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0
+    z-index: 1
+    // background: $colorYellow
+  &__name
+    position: relative
+    z-index: 2
+    margin-top: -.85em
+    margin-bottom: 30px
+    font-size: 30px
+    font-weight: 500
+    letter-spacing: 0.22em
+    line-height: 1.17
+    text-transform: uppercase
+  &__intro
+    position: relative
+    z-index: 2
+    font-size: 15px
+    letter-spacing: 0.04em
+
++rmin($desktop)
+  .main-title
+    &__name
+      font-size: 114px
+
+    &__intro
+      font-size: 18px

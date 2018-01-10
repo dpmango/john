@@ -4,15 +4,16 @@ html(lang="en")
   head
     include _head
 
-  body(class=bodyClass)#barba-wrapper
+  body(class=bodyClass)
     // MAIN WRAPPER :: START
     .page(class=outClass)
       .page__content
         block header
           include ../components/_header
         // MAIN :: START
-        main.barba-container
-          block content
+        #barba-wrapper
+          main.barba-container
+            block content
         
       block footer
         include ../components/_footer

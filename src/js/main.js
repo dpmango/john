@@ -74,12 +74,14 @@ $(document).ready(function(){
   function pageReady(){
     legacySupport();
 
+    setPageNavClass();
     headerScrollListener();
     _window.on('scroll', throttle(headerScrollListener, 10));
 
     initPopups();
     initSliders();
     runScrollMonitor();
+    initRellax();
 
     initMasks();
 
@@ -261,13 +263,15 @@ $(document).ready(function(){
   // SET ACTIVE CLASS IN HEADER
   // * could be removed in production and server side rendering
   // user .active for li instead
-  $('.header__menu li').each(function(i,val){
-    if ( $(val).find('a').attr('href') == window.location.pathname.split('/').pop() ){
-      $(val).addClass('active');
-    } else {
-      $(val).removeClass('active')
-    }
-  });
+  function setPageNavClass(){
+    $('.page-nav__menu li').each(function(i,val){
+      if ( $(val).find('a').attr('href') == window.location.pathname.split('/').pop() ){
+        $(val).addClass('is-active');
+      } else {
+        $(val).removeClass('is-active')
+      }
+    });
+  }
 
 
   //////////
@@ -338,65 +342,65 @@ $(document).ready(function(){
   ////////////
 
   // custom selects
-  $('.ui-select__visible').on('click', function(e){
-    var that = this
-    // hide parents
-    $(this).parent().parent().parent().find('.ui-select__visible').each(function(i,val){
-      if ( !$(val).is($(that)) ){
-        $(val).parent().removeClass('active')
-      }
-    });
-
-    $(this).parent().toggleClass('active');
-  });
-
-  $('.ui-select__dropdown span').on('click', function(){
-    // parse value and toggle active
-    var value = $(this).data('val');
-    if (value){
-      $(this).siblings().removeClass('active');
-      $(this).addClass('active');
-
-      // set visible
-      $(this).closest('.ui-select').removeClass('active');
-      $(this).closest('.ui-select').find('input').val(value);
-
-      $(this).closest('.ui-select').find('.ui-select__visible span').text(value);
-    }
-
-  });
+  // $('.ui-select__visible').on('click', function(e){
+  //   var that = this
+  //   // hide parents
+  //   $(this).parent().parent().parent().find('.ui-select__visible').each(function(i,val){
+  //     if ( !$(val).is($(that)) ){
+  //       $(val).parent().removeClass('active')
+  //     }
+  //   });
+  //
+  //   $(this).parent().toggleClass('active');
+  // });
+  //
+  // $('.ui-select__dropdown span').on('click', function(){
+  //   // parse value and toggle active
+  //   var value = $(this).data('val');
+  //   if (value){
+  //     $(this).siblings().removeClass('active');
+  //     $(this).addClass('active');
+  //
+  //     // set visible
+  //     $(this).closest('.ui-select').removeClass('active');
+  //     $(this).closest('.ui-select').find('input').val(value);
+  //
+  //     $(this).closest('.ui-select').find('.ui-select__visible span').text(value);
+  //   }
+  //
+  // });
 
   // handle outside click
-  $(document).click(function (e) {
-    var container = new Array();
-    container.push($('.ui-select'));
-
-    $.each(container, function(key, value) {
-        if (!$(value).is(e.target) && $(value).has(e.target).length === 0) {
-            $(value).removeClass('active');
-        }
-    });
-  });
+  // $(document).click(function (e) {
+  //   var container = new Array();
+  //   container.push($('.ui-select'));
+  //
+  //   $.each(container, function(key, value) {
+  //       if (!$(value).is(e.target) && $(value).has(e.target).length === 0) {
+  //           $(value).removeClass('active');
+  //       }
+  //   });
+  // });
 
   // numeric input
-  $('.ui-number span').on('click', function(e){
-    var element = $(this).parent().find('input');
-    var currentValue = parseInt($(this).parent().find('input').val()) || 0;
-
-    if( $(this).data('action') == 'minus' ){
-      if(currentValue <= 1){
-        return false;
-      }else{
-        element.val( currentValue - 1 );
-      }
-    } else if( $(this).data('action') == 'plus' ){
-      if(currentValue >= 99){
-        return false;
-      } else{
-        element.val( currentValue + 1 );
-      }
-    }
-  });
+  // $('.ui-number span').on('click', function(e){
+  //   var element = $(this).parent().find('input');
+  //   var currentValue = parseInt($(this).parent().find('input').val()) || 0;
+  //
+  //   if( $(this).data('action') == 'minus' ){
+  //     if(currentValue <= 1){
+  //       return false;
+  //     }else{
+  //       element.val( currentValue - 1 );
+  //     }
+  //   } else if( $(this).data('action') == 'plus' ){
+  //     if(currentValue >= 99){
+  //       return false;
+  //     } else{
+  //       element.val( currentValue + 1 );
+  //     }
+  //   }
+  // });
 
   // textarea autoExpand
   $(document)
@@ -423,63 +427,53 @@ $(document).ready(function(){
   ////////////
   // SCROLLMONITOR - WOW LIKE
   ////////////
-
-  var monitorActive = false;
   function runScrollMonitor(){
-    setTimeout(function(){
+    $('.wow').each(function(i, el){
 
-      // require
-      if ( !monitorActive ){
-        monitorActive = true;
-        $('.wow').each(function(i, el){
+      var elWatcher = scrollMonitor.create( $(el) );
 
-          var elWatcher = scrollMonitor.create( $(el) );
-
-          var delay;
-          if ( $(window).width() < 768 ){
-            delay = 0
-          } else {
-            delay = $(el).data('animation-delay');
-          }
-
-          var animationClass
-
-          if ( $(el).data('animation-class') ){
-            animationClass = $(el).data('animation-class');
-          } else {
-            animationClass = "wowFadeUp"
-          }
-
-          var animationName
-
-          if ( $(el).data('animation-name') ){
-            animationName = $(el).data('animation-name');
-          } else {
-            animationName = "wowFade"
-          }
-
-          elWatcher.enterViewport(throttle(function() {
-            $(el).addClass(animationClass);
-            $(el).css({
-              'animation-name': animationName,
-              'animation-delay': delay,
-              'visibility': 'visible'
-            });
-          }, 100, {
-            'leading': true
-          }));
-          // elWatcher.exitViewport(throttle(function() {
-          //   $(el).removeClass(animationClass);
-          //   $(el).css({
-          //     'animation-name': 'none',
-          //     'animation-delay': 0,
-          //     'visibility': 'hidden'
-          //   });
-          // }, 100));
-        });
+      var delay;
+      if ( $(window).width() < 768 ){
+        delay = 0
+      } else {
+        delay = $(el).data('animation-delay');
       }
 
-    },300);
+      var animationClass
+
+      if ( $(el).data('animation-class') ){
+        animationClass = $(el).data('animation-class');
+      } else {
+        animationClass = "wowFadeUp"
+      }
+
+      var animationName
+
+      if ( $(el).data('animation-name') ){
+        animationName = $(el).data('animation-name');
+      } else {
+        animationName = "wowFade"
+      }
+
+      elWatcher.enterViewport(throttle(function() {
+        $(el).addClass(animationClass);
+        $(el).css({
+          'animation-name': animationName,
+          'animation-delay': delay,
+          'visibility': 'visible'
+        });
+      }, 100, {
+        'leading': true
+      }));
+      // elWatcher.exitViewport(throttle(function() {
+      //   $(el).removeClass(animationClass);
+      //   $(el).css({
+      //     'animation-name': 'none',
+      //     'animation-delay': 0,
+      //     'visibility': 'hidden'
+      //   });
+      // }, 100));
+    });
   }
 
 
@@ -487,10 +481,18 @@ $(document).ready(function(){
   // PARALLAX
   //////////
 
-  var rellax = new Rellax('[js-rellax]', {
-    speed: -2,
-    center: true
-  });
+  function initRellax(){
+    var rellax
+
+    if (rellax){rellax.destroy();}
+
+    if (_document.find('[js-rellax]').length > 0){
+      rellax = new Rellax('[js-rellax]', {
+        speed: -2,
+        center: true
+      });
+    }
+  }
 
   //////////
   // BARBA PJAX
@@ -535,14 +537,12 @@ $(document).ready(function(){
   Barba.Pjax.start();
 
   Barba.Dispatcher.on('newPageReady', function(currentStatus, oldStatus, container, newPageRawHTML) {
-
     pageReady();
-
     // close mobile menu
-    if ( _window.width() < bp.mobile ){
-      closeMenu();
-    }
-  });
+    closeMenu();
 
+    _window.trigger('scroll');
+    _window.scrollTop(1);
+  });
 
 });

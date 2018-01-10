@@ -2,20 +2,20 @@ ProjectTitle: Project-name
 
 PageList:
 - file: homepage.html
-  ready: 100
+  ready: 80
 - file: portfolio.html
-  ready: 0
+  ready: 5
 - file: portfolio-project.html
-  ready: 0
+  ready: 5
 - file: portfolio-app.html
-  ready: 0
+  ready: 5
 - file: about.html
-  ready: 0
+  ready: 5
 - file: availability.html
-  ready: 0
+  ready: 5
 - file: blog.html
-  ready: 0
+  ready: 5
 - file: blog-article.html
-  ready: 0
+  ready: 5
 - file: contact.html
-  ready: 0
+  ready: 5
