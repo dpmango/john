@@ -10,7 +10,7 @@ PageList:
 - file: portfolio-app.html
   ready: 5
 - file: about.html
-  ready: 5
+  ready: 50
 - file: availability.html
   ready: 5
 - file: blog.html

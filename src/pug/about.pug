@@ -4,11 +4,38 @@ title: About
 extends shared/_layout
 block content
   
-  // ABOUT :: START
+  // ABOUT PAGE :: START
   .about
+    // section title
+    .about__section
+      .about__title-wrap
+        .about__title-parallax
+        // (js-rellax data-rellax-speed="-2" data-rellax-percentage="0.5")
+        .container
+          .about__title.t-title about <br> me
+          .about__text.t-text-reg
+            p I'm a freelance front-end web developer based in London. With fourteen years of experience I develop responsive, high-performance websites using HTML5, CSS, and JavaScript.
+      .about__title-after
+        .container
+          .t-text-reg
+            p My work is experienced by millions of users worldwide every year and ranges from modest responsive HTML emails and one-page websites right the way up to some of the most-visited websites in the UK.
+    
+    // section skills
     .about__section
       .container
-        .about__title about <br> me
-        .about__text
-          p I'm a freelance front-end web developer based in London. With fourteen years of experience I develop responsive, high-performance websites using HTML5, CSS, and JavaScript.
-          p My work is experienced by millions of users worldwide every year and ranges from modest responsive HTML emails and one-page websites right the way up to some of the most-visited websites in the UK.
+        .about__skills-wrap
+          // hidden on mobile
+          .about__clients
+            .about__client-logo
+            
+          .about__skills
+            .about__skills-title
+              .about__skills-parallax
+              .about__skills-title-name.t-title Key <br> skills
+            .about__skills-list
+              span tech lead
+              span front end
+              span javascript
+              span CSS
+              span HTML
+              span JQUERY

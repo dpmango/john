@@ -2,12 +2,92 @@
   &__section
     margin-bottom: 50px
 
+  &__title-wrap
+    position: relative
+    padding-bottom: 5px
+    > .container
+      position: relative
+      z-index: 2
+
+  &__title-parallax
+    display: inline-block
+    content: ' '
+    position: absolute
+    left: 0
+    top: 0
+    bottom: 0
+    width: 72vw
+    background: $colorBlue
+
+  &__title-after
+    position: relative
+    z-index: 2
+
   &__title
-    font-size: 30px
-    font-weight: 500
-    letter-spacing: 0.22em
-    line-height: 1.17
-    text-transform: uppercase
+    transform: translate3d(0, -.6em, 0)
+
   &__text
-    font-size: 15px
-    letter-spacing: 0.04em
+
+
+  /* aka next sections
+  &__skills-wrap
+    display: flex
+
+  &__clients
+    display: none
+    // flex
+    flex-wrap: wrap
+
+  &__client-logo
+    img
+      max-width: 100%
+
+  &__skills
+    flex: 0 1 auto
+    display: flex
+    flex-direction: row-reverse
+    width: 100%
+    &-title
+      position: relative
+      padding: 0 .95em
+      text-align: right
+      &-name
+        position: relative
+        z-index: 2
+
+    &-parallax
+      display: inline-block
+      content: ' '
+      position: absolute
+      z-index: 1
+      right: 0
+      top: -25px
+      size: 85px 80px
+      background: $colorBlue
+
+    &-list
+      margin-right: auto
+      +text-overflow
+      span
+        display: block
+        font-size: 18px
+        line-height: 1.66
+        letter-spacing: 0.22em
+        font-weight: 500
+        text-transform: uppercase
+        margin-bottom: .5em
+
+
+
+
+
++rmin($tablet)
+  .about
+    &__skills-wrap
+      flex-direction: row
+
+    &__clients
+      display: flex
+
+    &__skills
+      flex-direction: column
