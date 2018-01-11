@@ -1,16 +1,75 @@
-// UI
+/* UI
 
+/* DYNAMIC INPUT WITH FLOATING LABEL
+.ui-input-dynamic
+  position: relative
+  margin-bottom: 10px
+  label:not(.ui-validation)
+    position: absolute
+    left: 15px
+    top: 12px
+    z-index: 2
+    font-size: 13px
+    font-weight: 700
+    letter-spacing: 0.08em
+    text-transform: uppercase
+    color: rgba(black, .5)
+    pointer-events: none
+    transform-origin: left top
+    transition: .25s $ease
+  input, textarea
+    display: block
+    width: 100%
+    -webkit-appearance: none
+    background: #f5f5f5
+    color: rgba(black, .5)
+    border: 0
+    font-size: 13px
+    font-weight: 700
+    letter-spacing: 0.08em
+    border-radius: 0px
+    padding: 16px 15px 8px 15px
+    transition: .25s $ease
+  input
+    max-width: 300px
+  textarea
+    resize: vertical
+  &.is-focused
+    label:not(.ui-validation)
+      transform: translateY(-10px) scale(.6)
+      color: rgba(black, .35)
+  &.has-error
+    input,textarea
+      box-shadow: inset 0px 0px 6px rgba($colorRed, .5)
 
-// THIS IS REGULAR CLASS MODIFIER FOR THE INPUT IT
-.ui-input
-  display: block
-  width: 100%
-  -webkit-appearance: none
-  background: white
-  color: $grayColor
-  border: 1px solid $borderColor
-  border-radius: 4px
-  padding: 12px 15px
++rmin($desktop)
+  .ui-input-dynamic
+    margin-bottom: 15px
+    label:not(.ui-validation)
+      left: 20px
+      top: 15px
+    input, textarea
+      padding: 19px 20px 11px 20px
+
+    &.is-focused
+      label:not(.ui-validation)
+        transform: translateY(-12px) scale(.6)
+
+.ui-validation
+  display: none
+  position: absolute
+  // bottom: 0
+  // left: 15px
+  // margin-bottom: -.5em
+  right: 0
+  top: 15px
+  color: $colorRed
+  font-size: 10px
+  font-weight: 500
+
++rmin($tablet)
+  .ui-validation
+    display: inline-block
 
 
 // Checkbox

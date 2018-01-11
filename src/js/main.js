@@ -417,6 +417,21 @@ $(document).ready(function(){
         this.rows = minRows + rows;
     });
 
+  // FLOATING LABELS
+  // focus in
+  _document.on('focus', '.ui-input-dynamic', function(){
+    $(this).addClass('is-focused');
+  })
+
+  // focus out
+  _document.on('blur', '.ui-input-dynamic', function(){
+    var thisVal = $(this).find('input, textarea').val();
+    if ( thisVal !== "" ){
+      $(this).addClass('is-focused');
+    } else {
+      $(this).removeClass('is-focused');
+    }
+  })
 
   // Masked input
   function initMasks(){

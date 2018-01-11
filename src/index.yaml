@@ -4,7 +4,7 @@ PageList:
 - file: homepage.html
   ready: 80
 - file: portfolio.html
-  ready: 5
+  ready: 70
 - file: portfolio-project.html
   ready: 5
 - file: portfolio-app.html
@@ -18,4 +18,4 @@ PageList:
 - file: blog-article.html
   ready: 5
 - file: contact.html
-  ready: 5
+  ready: 30

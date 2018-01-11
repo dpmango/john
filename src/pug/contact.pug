@@ -10,3 +10,39 @@ block content
     .container
       .main-title__name get <br> in touch
       .main-title__intro I update my avaialbility below on a weekly basis, so you can see the next opportunity to book me in. 
+
+
+
+  // CONTACT FORM
+  .contact-enq
+    .contact-enq__left
+      // PAGE TITLE
+      .main-title
+        .main-title-parallax.--bg-red
+        .container
+          .main-title__name make <br> an <br> enquiry
+    .contact-enq__right
+      p I usually undertake longer-term contracts which can mean that I'm booked-up for several weeks in advance. However, I frequently also tackle additional work in my evenings and weekends (around other commitments) so do feel free to drop me a line if you have a project you think I might be able to help you with, even if my schedule looks totally full!
+      p Let me know what you need and when. I will always do what I can to fit you in.
+
+      form.contact-form(action="#" js-contact-form)
+        .ui-input-dynamic
+          label full name
+          input(type="text" name="name" placeholder="")
+        .ui-input-dynamic
+          label when do you need help?
+          input(type="text" name="time" placeholder="")  
+        .ui-input-dynamic
+          label email address
+          input(type="email" name="email" placeholder="")
+        .ui-input-dynamic
+          label other contact info
+          input(type="text" name="contact" placeholder="")
+        .ui-input-dynamic
+          label Message
+          textarea(type="text" name="message" placeholder="" rows="5")
+      
+        button(type="submit").link.link--red
+          span SEND MESSAGE
+              
+              

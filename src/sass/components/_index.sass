@@ -1,4 +1,12 @@
 // INDEX
+button.link
+  -webkit-apperance: none
+  background: transparent
+  border: 0
+  box-shadow: none
+  &:active
+    color: $fontColor
+
 .link
   position: relative
   display: inline-block
@@ -91,12 +99,14 @@
     position: relative
     z-index: 2
     margin-top: -.85em
-    margin-bottom: 30px
+    // margin-bottom: 30px
     font-size: 30px
     font-weight: 500
     letter-spacing: 0.22em
     line-height: 1.17
     text-transform: uppercase
+    & + .main-title__intro
+      margin-top: 30px
   &__intro
     position: relative
     z-index: 2

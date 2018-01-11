@@ -11,7 +11,7 @@ $(document).ready(function(){
   ////////////////////
 
   var validateErrorPlacement = function(error, element) {
-    error.addClass('ui-input__validation');
+    error.addClass('ui-validation');
     error.appendTo(element.parent("div"));
   }
   var validateHighlight = function(element) {
@@ -38,19 +38,19 @@ $(document).ready(function(){
     });
   }
 
-  var validatePhone = {
-    required: true,
-    normalizer: function(value) {
-        var PHONE_MASK = '+X (XXX) XXX-XXXX';
-        if (!value || value === PHONE_MASK) {
-            return value;
-        } else {
-            return value.replace(/[^\d]/g, '');
-        }
-    },
-    minlength: 11,
-    digits: true
-  }
+  // var validatePhone = {
+  //   required: true,
+  //   normalizer: function(value) {
+  //       var PHONE_MASK = '+X (XXX) XXX-XXXX';
+  //       if (!value || value === PHONE_MASK) {
+  //           return value;
+  //       } else {
+  //           return value.replace(/[^\d]/g, '');
+  //       }
+  //   },
+  //   minlength: 11,
+  //   digits: true
+  // }
 
   ////////
   // FORMS
@@ -59,39 +59,29 @@ $(document).ready(function(){
   /////////////////////
   // REGISTRATION FORM
   ////////////////////
-  $(".js-registration-form").validate({
+  $("[js-contact-form]").validate({
     errorPlacement: validateErrorPlacement,
     highlight: validateHighlight,
     unhighlight: validateUnhighlight,
     submitHandler: validateSubmitHandler,
     rules: {
-      last_name: "required",
-      first_name: "required",
+      name: "required",
+      time: "required",
       email: {
         required: true,
         email: true
       },
-      password: {
-        required: true,
-        minlength: 6,
-      }
+      message: "required"
       // phone: validatePhone
     },
     messages: {
-      last_name: "Заполните это поле",
-      first_name: "Заполните это поле",
+      name: "This field is required",
+      time: "This field is required",
       email: {
-          required: "Заполните это поле",
-          email: "Email содержит неправильный формат"
+          required: "This field is required",
+          email: "Email is invalid"
       },
-      password: {
-          required: "Заполните это поле",
-          email: "Пароль мимимум 6 символов"
-      },
-      // phone: {
-      //     required: "Заполните это поле",
-      //     minlength: "Введите корректный телефон"
-      // }
+      message: "This field is required",
     }
   });
 
