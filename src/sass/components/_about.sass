@@ -77,9 +77,88 @@
         text-transform: uppercase
         margin-bottom: .5em
 
+  &__general
+    position: relative
+    max-width: 570px
+    margin-left: auto
+    &-parallax
+      display: inline-block
+      content: ' '
+      position: absolute
+      top: -25px
+      bottom: -5px
+      left: 0
+      z-index: 1
+      width: 50vw
+      height: calc(100% + 30px)
+      background: $colorBlue
+    &-content
+      position: relative
+      .container
+        position: relative
+        z-index: 2
 
 
+  &__education
+    display: flex
+    flex-direction: column
+    &-title
+      position: relative
+      width: 50%
+      min-width: 190px
+      padding: .8em 0
+      &-parallax
+        position: absolute
+        top: 0
+        left: 0
+        bottom: 0
+        z-index: 1
+        display: inline-block
+        width: 25vw
+        min-width: 95px
+        background-color: $colorBlue
+      &-name
+        position: relative
+        z-index: 2
+        text-align: right
+        padding-left: 30px
+    &-content
+      width: 100%
+      margin-top: 35px
+      &-title
+        font-size: 24px
+        font-weight: 500
+        line-height: 1.2
+        letter-spacing: 0.22em
+        text-transform: uppercase
+        margin-bottom: 10px
 
+  &__personal
+    max-width: 770px
+    margin-left: auto
+    margin-right: auto
+    &-title
+      position: relative
+      width: 50%
+      min-width: 190px
+      padding: .8em 0
+      &-parallax
+        position: absolute
+        top: 0
+        left: 0
+        bottom: 0
+        z-index: 1
+        display: inline-block
+        width: 25vw
+        min-width: 95px
+        background-color: $colorBlue
+      &-name
+        position: relative
+        z-index: 2
+        padding-left: 30px
+    &-content
+      width: 100%
+      margin-top: 25px
 
 +rmin($tablet)
   .about
@@ -91,3 +170,10 @@
 
     &__skills
       flex-direction: column
+
+    &__education
+      flex-direction: row
+      &-title
+        flex: 0 1 50%
+      &-content
+        flex: 0 1 50%
