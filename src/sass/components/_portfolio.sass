@@ -45,16 +45,16 @@
     line-height: 1.42
     letter-spacing: 0.04em
 
-  &__figure
-    position: relative
-    margin-top: 35px
-    &-bg
-      position: absolute
-      top: 0
-      left: 0
-      width: 68%
-      height: 50%
-      z-index: 1
+.portfolio-figure
+  position: relative
+  margin-top: 35px
+  &-bg
+    position: absolute
+    top: 0
+    left: 0
+    width: 68%
+    height: 50%
+    z-index: 1
   &__img-holder
     display: block
     position: relative
@@ -78,6 +78,7 @@
     &:nth-child(even)
       margin-right: 0
       padding-left: 20px
+  .portfolio-figure
     &__img-holder
       transform: translateX(8%)
 
@@ -97,8 +98,8 @@
       font-size: 14px
       max-width: 400px
       padding-left: 30px
-    &__figure
-      margin-top: 45px
+  .portfolio-figure
+    margin-top: 45px
 
 +rmin(1600)
   .portfolio-item
