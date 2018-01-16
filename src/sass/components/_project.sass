@@ -1,0 +1,89 @@
+.project
+  &-hero
+    position: relative
+    margin-top: 35px
+    width: 85vw
+    &__parallax
+      position: absolute
+      top: 0
+      left: 0
+      right: 0
+      bottom: 47%
+      z-index: 1
+    > .container
+      position: relative
+      z-index: 2
+    &__top
+      position: absolute
+      top: calc(-2em - 10px)
+      left: 30px
+      font-size: 14px
+      font-weight: 500
+      letter-spacing: 0.08em
+      text-transform: uppercase
+
+    &__title
+      transform: translateY(-.6em)
+    &__short
+      // margin-top: 20px
+    &__image
+      display: block
+      margin-left: auto
+      width: 100vw
+      img
+        max-width: 100%
+        transform: translate(10%, -.5em)
+
+  &__paragraph
+    margin-top: 40px
+  &__title
+    font-size: 14px
+    font-weight: 500
+    letter-spacing: 0.08em
+    text-transform: uppercase
+    margin-bottom: 1.5em
+
+
+  
+.project-scope-wrap
+  display: flex
+  flex-direction: column
+  margin-top: 20px
+
+/* partly cloned from skills - about
+.project-scope
+  flex: 0 0 auto
+  display: flex
+  flex-direction: row-reverse
+  width: 100%
+  &__title
+    position: relative
+    padding: 0 .95em
+    text-align: right
+    &-name
+      position: relative
+      z-index: 2
+
+  &__parallax
+    display: inline-block
+    content: ' '
+    position: absolute
+    z-index: 1
+    right: 0
+    top: -25px
+    size: 85px 80px
+
+  &__list
+    margin-right: auto
+    +text-overflow
+    span
+      display: block
+      font-size: 18px
+      line-height: 1.66
+      letter-spacing: 0.22em
+      font-weight: 500
+      text-transform: uppercase
+      margin-bottom: .5em
+
+.project-scope-text
+  flex: 0 0 auto
