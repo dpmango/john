@@ -6,9 +6,9 @@ PageList:
 - file: portfolio.html
   ready: 70
 - file: portfolio-project.html
-  ready: 5
+  ready: 50
 - file: portfolio-app.html
-  ready: 5
+  ready: 50
 - file: about.html
   ready: 50
 - file: availability.html

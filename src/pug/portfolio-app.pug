@@ -4,14 +4,94 @@ title: Portfolio APP
 extends shared/_layout
 block content
   
-  // PORTFOLIO
-  .portfolio
+  // PROJECT
+  .project
+    .project-hero
+      .project-hero__parallax.--bg-pink
+      .container
+        .project-hero__top project
+        .project-hero__title.t-title creative <br> portfolio
+        .project-hero__short.t-text-small I'm a freelance front-end web developer based in London. With fourteen years of experience.
+        .project-hero__image
+          img(src='img/project-hero.png' srcset='img/project-hero@2x.png 2x')
+    
+    // PROJECT SCOPE    
     .container
-      .portfolio__wrapper
-        // portfolio item
-        .portfolio-item
-          .portfolio-item__name national broadcaster
-          .portfolio-item__short
-            p I'm a freelance front-end web developer based in London. With fourteen years of experience.
-          .portfolio-item__figure
-            .portfolio-item__figure-bg.--bg-blue
+      .project-scope-wrap
+        
+        .project-scope
+          .project-scope__title
+            .project-scope__parallax.--bg-pink
+            .project-scope__title-name.t-title Code <br> base
+          .project-scope__list
+            span HTML5
+            span CSS
+            span JQUERY
+            span WORDPRESS
+            span BOOTSTRAP
+        
+        .project-scope-text
+          .project__paragraph
+            .project__subtitle My Role
+            .t-text-reg
+              p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent iaculis fringilla metus, id pretium magna. Suspendisse potenti
+          .project__paragraph
+            .project__subtitle the approach
+            .t-text-reg
+              p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent iaculis fringilla metus, id pretium magna. Suspendisse potenti. Aenean tincidunt, quam eget placerat viverra, magna nisl scelerisque ligula.
+  
+  // details left
+  .project-details.--left
+    .project-details__wrapper
+      .project-details__figure
+        .project-details__parallax.--bg-pink
+        img(src='img/project-placeholder-1.png' srcset='img/project-placeholder-1@2x.png 2x')
+      .project-details__content
+        .container
+          .project__paragraph
+            .project__subtitle My Role
+            .t-text-reg
+              p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent iaculis fringilla metus, id pretium magna. Suspendisse potenti
+  
+  // details center
+  .project-details.--center
+    .container
+      .project-details__wrapper
+        .project-details__figure
+          img(src='img/project-placeholder-2.png' srcset='img/project-placeholder-2@2x.png 2x')
+        .project-details__content
+          .project__paragraph
+            .project__subtitle Title
+            .t-text-reg
+              p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent iaculis fringilla metus, id pretium magna.
+  
+  // details right 
+  .project-details.--right
+    .project-details__wrapper
+      .project-details__figure
+        .project-details__parallax.--bg-pink
+        picture
+          source(media="(max-width: 768px)" srcset="img/project-placeholderMobile-3.png 1x, img/project-placeholderMobile-3@2x.png 2x")
+          source(media="(min-width: 768px)" srcset="img/project-placeholder-3.png 1x, img/project-placeholder-3@2x.png 2x")
+          img(src="img/project-placeholder-3.png")
+
+      .project-details__content
+        .container
+          .project__paragraph
+            .project__subtitle Title
+            .t-text-reg
+              p Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      
+                        
+  // NEXT PROJECT
+  .next-project
+    .next-project__card.np-card
+      .np-card__top PROJECT
+      .np-card__title national broadcaster
+      .portfolio-figure.np-card
+        .portfolio-figure-bg.--bg-blue
+        a(href="#").portfolio-figure__img-holder
+          img(src='img/portfolio-project_3.png' srcset='img/portfolio-project_3@2x.png 2x')
+    .next-project__cta
+      a(href="projects").link.link--blue
+        span All projects

@@ -39,4 +39,59 @@ block content
             .project__subtitle the approach
             .t-text-reg
               p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent iaculis fringilla metus, id pretium magna. Suspendisse potenti. Aenean tincidunt, quam eget placerat viverra, magna nisl scelerisque ligula.
-          
+  
+  // details left
+  .project-details.--left
+    .project-details__wrapper
+      .project-details__figure
+        .project-details__parallax.--bg-pink
+        img(src='img/project-placeholder-1.png' srcset='img/project-placeholder-1@2x.png 2x')
+      .project-details__content
+        .container
+          .project__paragraph
+            .project__subtitle My Role
+            .t-text-reg
+              p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent iaculis fringilla metus, id pretium magna. Suspendisse potenti
+  
+  // details center
+  .project-details.--center
+    .container
+      .project-details__wrapper
+        .project-details__figure
+          img(src='img/project-placeholder-2.png' srcset='img/project-placeholder-2@2x.png 2x')
+        .project-details__content
+          .project__paragraph
+            .project__subtitle Title
+            .t-text-reg
+              p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent iaculis fringilla metus, id pretium magna.
+  
+  // details right 
+  .project-details.--right
+    .project-details__wrapper
+      .project-details__figure
+        .project-details__parallax.--bg-pink
+        picture
+          source(media="(max-width: 768px)" srcset="img/project-placeholderMobile-3.png 1x, img/project-placeholderMobile-3@2x.png 2x")
+          source(media="(min-width: 768px)" srcset="img/project-placeholder-3.png 1x, img/project-placeholder-3@2x.png 2x")
+          img(src="img/project-placeholder-3.png")
+
+      .project-details__content
+        .container
+          .project__paragraph
+            .project__subtitle Title
+            .t-text-reg
+              p Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      
+                        
+  // NEXT PROJECT
+  .next-project
+    .next-project__card.np-card
+      .np-card__top PROJECT
+      .np-card__title national broadcaster
+      .portfolio-figure.np-card
+        .portfolio-figure-bg.--bg-blue
+        a(href="#").portfolio-figure__img-holder
+          img(src='img/portfolio-project_3.png' srcset='img/portfolio-project_3@2x.png 2x')
+    .next-project__cta
+      a(href="projects").link.link--blue
+        span All projects

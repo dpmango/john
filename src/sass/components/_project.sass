@@ -36,7 +36,7 @@
 
   &__paragraph
     margin-top: 40px
-  &__title
+  &__subtitle
     font-size: 14px
     font-weight: 500
     letter-spacing: 0.08em
@@ -44,7 +44,7 @@
     margin-bottom: 1.5em
 
 
-  
+
 .project-scope-wrap
   display: flex
   flex-direction: column
@@ -87,3 +87,56 @@
 
 .project-scope-text
   flex: 0 0 auto
+
+
+
+.project-details
+  margin-top: 50px
+  margin-bottom: 50px
+  &__wrapper
+    display: flex
+    flex-direction: column
+  &__figure
+    img
+      position: relative
+      z-index: 2
+      max-width: 100%
+  &.--left
+    .project-details
+      &__figure
+        position: relative
+        width: 75vw
+        padding-bottom: 10%
+      &__parallax
+        position: absolute
+        right: -20%
+        bottom: 0
+        top: 50%
+        width: 45vw
+        z-index: 1
+      &__content
+  &.--center
+    .project-details
+      &__figure
+        position: relative
+        width: 90%
+        margin-left: auto
+        margin-right: auto
+        text-align: center
+
+  &.--right
+    .project-details
+      &__figure
+        position: relative
+        width: calc(100vw - 30px)
+        margin-left: auto
+        img
+          width: 100%
+      &__parallax
+        position: absolute
+        right: 0%
+        bottom: 5%
+        top: 50%
+        width: 30vw
+        z-index: 1
+      &__content
