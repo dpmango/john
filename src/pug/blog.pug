@@ -5,8 +5,90 @@ extends shared/_layout
 block content
   
   // PAGE TITLE
-  .main-title
-    .main-title-parallax.--bg-blue
+  //- .main-title
+  //-   .main-title-parallax.--bg-blue
+  //-   .container
+  //-     .main-title__name Blog
+  //-     .main-title__intro I update my avaialbility below on a weekly basis, so you can see the next opportunity to book me in. 
+
+  .about__title-wrap
+    .about__title-parallax
+    // (js-rellax data-rellax-speed="-2" data-rellax-percentage="0.5")
     .container
-      .main-title__name Blog
-      .main-title__intro I update my avaialbility below on a weekly basis, so you can see the next opportunity to book me in. 
+      .about__title.t-title Blog
+      .about__text.t-text-reg
+        p I update my avaialbility below on a weekly basis, so you can see the next opportunity to book me in. 
+        
+  
+  // BLOG GRID
+  .container
+    .blog-grid
+      // blog card
+      .blog-card
+        .blog-card__date 02 june 2017
+        a(href="#").blog-card__title.--hc-blue Adaptive vs. responsive design & development
+        .blog-card__short.t-text-small
+          p I'm a freelance front-end web developer based in London. With fourteen years of experience.
+        a(href="#").blog-card__image
+          img(src='img/blog-pic_1.png' srcset='img/blog-pic_1@2x.png 2x')
+
+      // blog card
+      .blog-card
+        .blog-card__date 02 june 2017
+        a(href="#").blog-card__title.--hc-blue The basics of responsive web
+        .blog-card__short.t-text-small
+          p responsive HTML emails and one-page websites right the way up to some of the most-visited websites in the UK.
+        a(href="#").blog-card__image
+          img(src='img/blog-pic_2.png' srcset='img/blog-pic_2@2x.png 2x')
+      
+      // blog card
+      .blog-card
+        .blog-card__date 02 june 2017
+        a(href="#").blog-card__title.--hc-blue Which software do I use?
+        .blog-card__short.t-text-small
+          p My work is experienced by millions of users worldwide every year and ranges from modest responsive HTML emails and one-page .
+        a(href="#").blog-card__image
+          img(src='img/blog-pic_3.png' srcset='img/blog-pic_3@2x.png 2x')
+
+      // blog card
+      .blog-card
+        .blog-card__date 02 june 2017
+        a(href="#").blog-card__title.--hc-blue Adaptive vs. responsive design & development
+        .blog-card__short.t-text-small
+          p I'm a freelance front-end web developer based in London. With fourteen years of experience.
+        a(href="#").blog-card__image
+          img(src='img/blog-pic_4.png' srcset='img/blog-pic_4@2x.png 2x')
+
+      // blog card
+      .blog-card
+        .blog-card__date 02 june 2017
+        a(href="#").blog-card__title.--hc-blue Some notes on development process
+        .blog-card__short.t-text-small
+          p I'm a freelance front-end web developer based in London. Experience.
+        a(href="#").blog-card__image
+          img(src='img/blog-pic_5.png' srcset='img/blog-pic_5@2x.png 2x')
+
+      // blog card
+      .blog-card
+        .blog-card__date 02 june 2017
+        a(href="#").blog-card__title.--hc-blue Responsive design & development
+        .blog-card__short.t-text-small
+          p I'm a freelance front-end web developer based in London. With fourteen years of experience.
+        a(href="#").blog-card__image
+          img(src='img/blog-pic_6.png' srcset='img/blog-pic_6@2x.png 2x')
+  
+  // PAGINATION
+  .pagination
+    .container
+      ul.pagination-list
+        li
+          a(href="#") 1
+        li
+          a(href="#") 2
+        li
+          a(href="#") 3
+        li
+          a(href="#") 4
+        li
+          a(href="#") Next
+        

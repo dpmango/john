@@ -14,7 +14,7 @@ PageList:
 - file: availability.html
   ready: 5
 - file: blog.html
-  ready: 5
+  ready: 60
 - file: blog-article.html
   ready: 5
 - file: contact.html

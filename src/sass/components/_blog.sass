@@ -1,0 +1,159 @@
+/* BLOG
+.blog-grid
+  margin-top: 50px
+  display: flex
+  flex-direction: column
+
++rmin($tablet)
+  .blog-grid
+    flex-direction: row
+    flex-wrap: wrap
+
++rmin($desktop)
+  .blog-grid
+    padding-left: 30px
+    padding-right: 30px
+
+.blog-card
+  display: flex
+  flex-direction: column
+  flex: 0 0 auto
+  min-width: 1px
+  min-height: 1px
+  width: 100%
+  max-width: 400px
+  margin: 0px auto 40px auto
+  &__date
+    font-size: 11px
+    letter-spacing: 0.08em
+    text-transform: uppercase
+    font-weight: 700
+  &__title
+    display: inline-block
+    margin-top: 10px
+    max-width: 300px
+    font-size: 18px
+    letter-spacing: 0.22em
+    font-weight: 500
+    line-height: 1.27
+    text-transform: uppercase
+    transition: .25s $ease
+    &:hover
+      // hover color to set individually with mod class
+      // color: $colorBlue
+  &__short
+    max-width: 300px
+    padding-top: 10px
+    margin-top: auto
+  &__image
+    display: block
+    margin-top: 20px
+    overflow: hidden
+    font-size: 0
+    img
+      max-width: 100%
+      transform: scale(1.05)
+      transition: .25s $ease
+    &:hover
+      img
+        transform: scale(1)
+
+
+
++rmin($tablet)
+  .blog-card
+    flex: 0 1 50%
+    margin-bottom: 60px
+    &:nth-child(odd)
+      margin-left: 0
+    &:nth-child(even)
+      margin-right: 0
+
++rmin($desktop)
+  .blog-card
+    max-width: 450px
+    margin-bottom: 80px
+    &:nth-child(odd)
+      padding-right: 40px
+    &:nth-child(even)
+      padding-left: 40px
+    &__date
+      font-size: 12px
+    &__title
+      font-size: 22px
+      max-width: 350px
+      margin-top: 20px
+    &__short
+      font-size: 14px
+      padding-top: 20px
+      max-width: 390px
+    &__image
+      margin-top: 30px
+
+
++rmin(1600)
+  .blog-card
+    flex: 0 1 33.3%
+    padding-right: 40px
+    padding-left: 40px
+    &:nth-child(1n)
+      margin-right: auto
+    &:nth-child(2n)
+      margin-right: auto
+      margin-left: auto
+    &:nth-child(3n)
+      margin-left: auto
+
+
+/* PAGINATION
+.pagination
+  margin-bottom: 50px
+  &-list
+    display: flex
+    align-items: center
+    margin: 0
+    margin-left: -10px
+    padding: 0
+    list-style: none
+    li
+      position: relative
+      display: inline-block
+      &::after
+        display: inline-block
+        content: ' '
+        position: absolute
+        bottom: 0
+        left: 50%
+        width: 0%
+        height: 4px
+        transform: translateX(-50%)
+        background: $colorBlue
+        opacity: 0
+        transition: .25s $ease
+      &:hover
+        &::after
+          opacity: 1
+          width: 30px
+    a
+      display: inline-block
+      font-size: 16px
+      font-weight: 500
+      padding: 10px 15px
+      text-transform: uppercase
+
+
+
+
+
+
+
++rmin($tablet)
+  .pagination
+    margin-bottom: 80px
+    &-list
+
+
++rmin($desktop)
+  .pagination
+    padding: 0 30px
+    margin-bottom: 120px
