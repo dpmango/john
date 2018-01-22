@@ -152,6 +152,15 @@ $(document).ready(function(){
     $(this).toggleClass('is-active');
     $('.page-nav').toggleClass('is-active');
 
+    // toggle header stae back
+    var vScroll = _window.scrollTop();
+    var header = $('.header').not('.header--static');
+    var headerHeight = header.height();
+    var heroHeight = _document.find('.barba-container').children().first().outerHeight() - headerHeight;
+    if ( vScroll > headerHeight ){
+      header.toggleClass('header--transformed');
+    }
+
     blockScroll();
   });
 
