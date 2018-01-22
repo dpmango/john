@@ -1,0 +1,12 @@
+{
+  "blogList": [
+    {
+      id: 1,
+      title: "Adaptive vs. responsive design & development",
+      date: "02 june 2017",
+      short: "I'm a freelance front-end web developer based in London. With fourteen years of experience.",
+      img: "img/blog-pic_1.png",
+      img2x: "img/blog-pic_1@2x.png"
+    }
+  ]
+}

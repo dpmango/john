@@ -1,5 +1,6 @@
 var gulp        = require('gulp');
 var pug         = require('gulp-pug');
+var data        = require('gulp-data');
 var plumber     = require('gulp-plumber');
 var changed     = require('gulp-changed');
 var gulpif      = require('gulp-if');
@@ -12,6 +13,11 @@ function renderHtml(onlyChanged) {
     .pipe(plumber({ errorHandler: config.errorHandler }))
     .pipe(gulpif(onlyChanged, changed(config.dest.html, { extension: '.html' })))
     .pipe(frontMatter({ property: 'data' }))
+    // .pipe(data( function(file) {
+    //   return JSON.parse(
+    //     fs.readFileSync('./src/json/db.json')
+    //   );
+    // }))
     .pipe(pug({
       pretty: true
     }))
