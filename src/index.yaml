@@ -16,6 +16,6 @@ PageList:
 - file: blog.html
   ready: 60
 - file: blog-article.html
-  ready: 5
+  ready: 50
 - file: contact.html
   ready: 30

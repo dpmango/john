@@ -45,6 +45,8 @@
     max-width: 300px
     padding-top: 10px
     margin-top: auto
+    p
+      margin: 0
   &__image
     display: block
     margin-top: 20px
@@ -52,6 +54,7 @@
     font-size: 0
     img
       max-width: 100%
+      width: 100%
       transform: scale(1.05)
       transition: .25s $ease
     &:hover
@@ -118,7 +121,7 @@
     li
       position: relative
       display: inline-block
-      &::after
+      &::after, &.is-active
         display: inline-block
         content: ' '
         position: absolute
@@ -140,11 +143,6 @@
       font-weight: 500
       padding: 10px 15px
       text-transform: uppercase
-
-
-
-
-
 
 
 +rmin($tablet)

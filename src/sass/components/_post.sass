@@ -1,0 +1,60 @@
+/* Post
+.post-title
+  position: relative
+  margin-top: 50px
+  margin-bottom: -50px
+  width: 75vw
+  max-width: 880px
+  &-parallax
+    display: inline-block
+    content: ' '
+    position: absolute
+    top: 20%
+    bottom: 0
+    left: 0
+    right: 0
+    z-index: 1
+    // background: $colorYellow
+  > .container
+    position: relative
+    z-index: 2
+    transform: translateY(-40%)
+  &__top
+    font-size: 12px
+    font-weight: 700
+    letter-spacing: 0.08em
+    text-transform: uppercase
+  &__name
+    margin-top: 15px
+    font-size: 22px
+    font-weight: 500
+    letter-spacing: 0.22em
+    line-height: 1.17
+    text-transform: uppercase
+
+
++rmin($desktop)
+  .main-title
+    &__name
+      font-size: 48px
+
+
+.post-content
+  img
+    max-width: 100%
+  p
+    font-size: 15px
+    line-height: 1.6
+    letter-spacing: 0.04em
+  code
+    display: block
+    background: #f5f5f5
+    font-family: 'Circular Std'
+    font-size: 16px
+    padding: 1em
+    margin: 1em 0
+
++rmin($desktop)
+  .post-content
+    code
+      font-size: 18px

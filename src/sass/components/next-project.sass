@@ -29,6 +29,20 @@
     margin-bottom: 10px
     word-spacing: 100vw
     transition: .25s $ease
+    &--no-break
+      word-spacing: normal
+  &__image
+    display: block
+    margin-top: 20px
+    overflow: hidden
+    font-size: 0
+    img
+      max-width: 100%
+      transform: scale(1.05)
+      transition: .25s $ease
+    &:hover
+      img
+        transform: scale(1)
 
 +rmin($tablet)
   .next-project

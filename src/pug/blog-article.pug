@@ -4,9 +4,42 @@ title: BLOG Article
 extends shared/_layout
 block content
   
-  // PAGE TITLE
-  .main-title
-    .main-title-parallax.--bg-blue
+  // POST TITLE
+  .post-title
+    .post-title-parallax.--bg-blue
     .container
-      .main-title__name Blog
-      .main-title__intro I update my avaialbility below on a weekly basis, so you can see the next opportunity to book me in. 
+      .post-title__top 02 june 2017
+      .post-title__name Adaptive vs. responsive design & development
+
+  // POST CONTENT
+  .post-content
+    .container
+      img(src='img/blog-pic-full.png' srcset='img/blog-pic-full@2x.png 2x')
+      p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec tempor dolor. Ut hendrerit vitae magna ut efficitur. Curabitur accumsan vel metus quis finibus. Donec sodales elit at nisi scelerisque, rutrum porttitor leo vestibulum. Pellentesque libero ipsum, mattis a sem eget, faucibus mattis nisl. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Ut vitae sollicitudin nisl, a porttitor nibh. Vivamus quis pretium orci. Etiam porta pharetra lectus non convallis. Fusce lacinia lobortis viverra. Etiam ut est tincidunt, pharetra lorem at, scelerisque arcu. Nam quis turpis felis.
+      
+      code.
+        .columns{
+          -webkit-column-width: 200px;
+          -webkit-column-count: 4;
+          -moz-column-width: 200px;
+          -moz-column-count: 4;
+          column-width: 200px;
+          column-count: 4;
+        }
+
+      h3 Subtitle
+      p Aenean consequat at sem a condimentum. Duis vel justo non lacus ornare efficitur eget ac odio. Pellentesque pharetra, sem vitae auctor facilisis, turpis risus posuere lorem, vitae viverra tellus ligula in arcu. Sed venenatis erat eu laoreet pretium. In vulputate sollicitudin mauris sit amet fermentum. Donec pellentesque varius turpis, id vestibulum est laoreet a. Etiam rutrum lorem ut mi congue, a tempus magna volutpat. Phasellus tincidunt gravida odio vitae lobortis. Duis semper elementum purus, ac tempus est sollicitudin sit amet. Morbi efficitur sit amet quam vitae porta. Donec aliquam id mauris ac cursus.
+
+      p Nam commodo nisi eget elit consectetur, at consequat tellus eleifend. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Mauris quis nisi nec quam fermentum dignissim. Curabitur turpis nulla, rutrum at est at, tempus egestas ipsum. Maecenas augue quam, ultrices nec ultrices in, fringilla ac tortor. Sed a urna vel leo faucibus porta. Suspendisse potenti. Donec finibus, dolor laoreet dapibus vestibulum, metus dolor eleifend neque, et condimentum diam nulla ac ex. 
+      p Sed at eleifend mi. Vivamus venenatis dapibus lorem consequat lobortis. Vivamus id ligula in nisl fermentum mollis. Fusce vehicula nibh ut dignissim imperdiet. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+  
+  // NEXT POST
+  .next-project
+    .next-project__card.np-card
+      .np-card__top Next Post 
+      .np-card__title.np-card__title--no-break Adaptive vs. responsive design & development
+      a(href="#").np-card__image
+        img(src='img/blog-pic_1.png' srcset='img/blog-pic_1@2x.png 2x')
+    .next-project__cta
+      a(href="blog.html").link.link--blue
+        span All posts
