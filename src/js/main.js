@@ -80,12 +80,13 @@ $(document).ready(function(){
     revealFooter();
     _window.on('resize', throttle(revealFooter, 100));
 
-    initPopups();
-    initSliders();
+    // initPopups();
+    // initSliders();
     initScrollMonitor();
     initRellax();
     initValidation();
     // initMasks();
+    setScheduleProgress();
 
     // temp - developer
     _window.on('resize', debounce(setBreakpoint, 200))
@@ -289,68 +290,76 @@ $(document).ready(function(){
     });
   }
 
+  // shedule progress
+  function setScheduleProgress(){
+    $('.schedule-card__progress').each(function(i, el){
+      var width = $(el).data('progress');
+      $(el).css({'width': width + '%'})
+    })
+  }
+
 
   //////////
   // SLIDERS
   //////////
 
-  function initSliders(){
-    $('.trending__wrapper').slick({
-      autoplay: true,
-      dots: false,
-      arrows: false,
-      infinite: true,
-      speed: 300,
-      slidesToShow: 1,
-      centerMode: true,
-      variableWidth: true
-    });
-  }
-
-  //////////
-  // MODALS
-  //////////
-
-  function initPopups(){
-    // Magnific Popup
-    // var startWindowScroll = 0;
-    $('.js-popup').magnificPopup({
-      type: 'inline',
-      fixedContentPos: true,
-      fixedBgPos: true,
-      overflowY: 'auto',
-      closeBtnInside: true,
-      preloader: false,
-      midClick: true,
-      removalDelay: 300,
-      mainClass: 'popup-buble',
-      callbacks: {
-        beforeOpen: function() {
-          // startWindowScroll = _window.scrollTop();
-          // $('html').addClass('mfp-helper');
-        },
-        close: function() {
-          // $('html').removeClass('mfp-helper');
-          // _window.scrollTop(startWindowScroll);
-        }
-      }
-    });
-
-    $('[js-popup-gallery]').magnificPopup({
-  		delegate: 'a',
-  		type: 'image',
-  		tLoading: 'Загрузка #%curr%...',
-  		mainClass: 'popup-buble',
-  		gallery: {
-  			enabled: true,
-  			navigateByImgClick: true,
-  			preload: [0,1]
-  		},
-  		image: {
-  			tError: '<a href="%url%">The image #%curr%</a> could not be loaded.'
-  		}
-  	});
-  }
+  // function initSliders(){
+  //   $('.trending__wrapper').slick({
+  //     autoplay: true,
+  //     dots: false,
+  //     arrows: false,
+  //     infinite: true,
+  //     speed: 300,
+  //     slidesToShow: 1,
+  //     centerMode: true,
+  //     variableWidth: true
+  //   });
+  // }
+  //
+  // //////////
+  // // MODALS
+  // //////////
+  //
+  // function initPopups(){
+  //   // Magnific Popup
+  //   // var startWindowScroll = 0;
+  //   $('.js-popup').magnificPopup({
+  //     type: 'inline',
+  //     fixedContentPos: true,
+  //     fixedBgPos: true,
+  //     overflowY: 'auto',
+  //     closeBtnInside: true,
+  //     preloader: false,
+  //     midClick: true,
+  //     removalDelay: 300,
+  //     mainClass: 'popup-buble',
+  //     callbacks: {
+  //       beforeOpen: function() {
+  //         // startWindowScroll = _window.scrollTop();
+  //         // $('html').addClass('mfp-helper');
+  //       },
+  //       close: function() {
+  //         // $('html').removeClass('mfp-helper');
+  //         // _window.scrollTop(startWindowScroll);
+  //       }
+  //     }
+  //   });
+  //
+  //   $('[js-popup-gallery]').magnificPopup({
+  // 		delegate: 'a',
+  // 		type: 'image',
+  // 		tLoading: 'Загрузка #%curr%...',
+  // 		mainClass: 'popup-buble',
+  // 		gallery: {
+  // 			enabled: true,
+  // 			navigateByImgClick: true,
+  // 			preload: [0,1]
+  // 		},
+  // 		image: {
+  // 			tError: '<a href="%url%">The image #%curr%</a> could not be loaded.'
+  // 		}
+  // 	});
+  // }
 
 
   ////////////
@@ -366,7 +375,7 @@ $(document).ready(function(){
         this.value = savedValue;
     })
     .on('input.autoExpand', 'textarea.autoExpand', function(){
-        var minRows = this.getAttribute('data-min-rows')|0, rows;
+        var minRows = this.getAttribute('data-min-rows')|5, rows;
         this.rows = minRows;
         rows = Math.ceil((this.scrollHeight - this.baseScrollHeight) / 17);
         this.rows = minRows + rows;
@@ -445,6 +454,26 @@ $(document).ready(function(){
       //     'visibility': 'hidden'
       //   });
       // }, 100));
+    });
+
+    $('.schedule-card').each(function(i, el){
+      var elWatcher = scrollMonitor.create( $(el) );
+
+      elWatcher.enterViewport(throttle(function() {
+        setTimeout(function(){
+          $(el).addClass('has-entered');
+        }, 250)
+      }, 100, {
+        'leading': true
+      }));
+
+      elWatcher.exitViewport(throttle(function() {
+        setTimeout(function(){
+          $(el).removeClass('has-entered');
+        }, 150)
+
+      }, 100));
+
     });
   }
 

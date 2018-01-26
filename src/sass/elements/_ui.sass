@@ -31,9 +31,10 @@
     padding: 16px 15px 8px 15px
     transition: .25s $ease
   input
-    max-width: 300px
+    // max-width: 300px
   textarea
     resize: vertical
+    // transition: none
   &.is-focused
     label:not(.ui-validation)
       transform: translateY(-10px) scale(.6)
@@ -48,6 +49,9 @@
     label:not(.ui-validation)
       left: 20px
       top: 15px
+
+    input
+      max-width: 300px
     input, textarea
       padding: 19px 20px 11px 20px
 
@@ -61,8 +65,8 @@
   // bottom: 0
   // left: 15px
   // margin-bottom: -.5em
-  right: 0
-  top: 15px
+  right: 10px
+  top: 14px
   color: $colorRed
   font-size: 10px
   font-weight: 500

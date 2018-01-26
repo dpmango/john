@@ -17,11 +17,11 @@ block content
   .contact-enq
     .contact-enq__left
       // PAGE TITLE
-      .main-title
-        .main-title-parallax.--bg-red
+      .enq-title
+        .enq-title-parallax.--bg-red
         .container
-          .main-title__name make <br> an <br> enquiry
-    .contact-enq__right
+          .enq-title__name make <br> an <br> enquiry
+    .contact-enq__right.t-text-small
       p I usually undertake longer-term contracts which can mean that I'm booked-up for several weeks in advance. However, I frequently also tackle additional work in my evenings and weekends (around other commitments) so do feel free to drop me a line if you have a project you think I might be able to help you with, even if my schedule looks totally full!
       p Let me know what you need and when. I will always do what I can to fit you in.
 
@@ -40,7 +40,7 @@ block content
           input(type="text" name="contact" placeholder="")
         .ui-input-dynamic
           label Message
-          textarea(type="text" name="message" placeholder="" rows="5")
+          textarea.autoExpand(type="text" name="message" placeholder="" rows="5")
       
         button(type="submit").link.link--red
           span SEND MESSAGE

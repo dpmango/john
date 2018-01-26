@@ -29,6 +29,10 @@
   &__bottom
     display: flex
     flex-direction: column
+    &--bigger
+      .avail
+        &__status
+
   &__status
     position: relative
     z-index: 2
@@ -62,6 +66,13 @@
   &__cta
     text-align: center
 
+  &__schedule
+    margin-top: 50px
+    max-width: 670px
+    display: flex
+    flex-direction: column
+
+
 +rmin($mobile)
   .avail
     margin-top: 100px
@@ -87,6 +98,23 @@
       margin-top: 50px
       padding-right: 60px
       flex-direction: row
+      &--bigger
+        margin-top: 150px
+        flex-direction: row-reverse
+        align-items: center
+        .avail
+          &__status
+            > span
+              font-size: 24px
+            &-line
+              font-size: 96px
+              &::before
+                width: 60px
+          &__cta
+            margin-right: 50px
+            margin-left: auto
+
+
     &__status
       margin: 0
       margin-left: auto
@@ -98,6 +126,9 @@
       padding-top: 5px
       margin-right: 28%
       margin-left: 15%
+
+    &__schedule
+      margin-top: 100px
 
 
 
@@ -126,3 +157,70 @@
 
   &__title
     transform: translate3d(0, -.6em, 0)
+
+
+/* schedule CARD
+.schedule-card
+  display: flex
+  align-items: center
+  margin-bottom: 15px
+  font-size: 0
+  &--disabled
+    .schedule-card
+      &__month, &__desc
+        color: rgba(black, .3)
+  &__month
+    flex: 0 0 auto
+    min-width: 55px
+    font-size: 14px
+    font-weight: 500
+    letter-spacing: 0.22em
+    text-transform: uppercase
+  &__fill
+    position: relative
+    z-index: 1
+    overflow: hidden
+    flex: 1 1 auto
+    height: 11px
+    background: #f5f5f5
+  &__progress
+    display: inline-block
+    position: absolute
+    left: 0
+    top: 0
+    bottom: 0
+    background: $colorYellow
+    transition: .25s easeInOutCirc
+    transform: translateX(-100%)
+  &__desc
+    flex: 0 0 auto
+    min-width: 100px
+    margin-left: auto
+    margin-left: 15px
+    font-size: 14px
+    letter-spacing: 0.04em
+
+/* when shedule card is in viewport
+.schedule-card
+  &.has-entered
+    .schedule-card__progress
+      transform: translateX(0)
+
+
++rmin($tablet)
+  .schedule-card
+    // &__
+
++rmin($desktop)
+  .schedule-card
+    // &__
+    margin-bottom: 30px
+    &__month
+      font-size: 24px
+      min-width: 90px
+    &__fill
+      height: 14px
+    &__desc
+      min-width: 145px
+      margin-left: 25px
+      font-size: 16px

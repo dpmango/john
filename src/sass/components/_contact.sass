@@ -153,23 +153,29 @@
 .contact-enq
   display: flex
   flex-direction: column
-  margin-bottom: 50px
+  margin-bottom: 70px
+  margin-top: 80px
   &__left
 
   &__right
+    margin-top: 20px
     padding-left: 30px
     padding-right: 30px
+    p
+      max-width: 400px
+      margin-left: auto
+      margin-right: auto
 
 +rmin($mobile)
   .contact-enq
-    margin-bottom: 80px
     &__right
       padding-left: 50px
       padding-right: 50px
 
 +rmin($tablet)
   .contact-enq
-    margin-bottom: 100px
+    margin-bottom: 110px
+    margin-top: 120px
     &__right
       padding-left: 50px
       padding-right: 80px
@@ -178,6 +184,7 @@
   .contact-enq
     flex-direction: row
     margin-bottom: 150px
+    margin-top: 150px
     &__left
       flex: 0 1 50%
     &__right
@@ -185,6 +192,61 @@
       padding-right: 130px
 
 .contact-form
-  max-width: 490px
+  max-width: 400px
+  margin-left: auto
+  margin-right: auto
+  margin-top: 40px
   .link
-    margin-top: 20px
+    margin-top: 30px
+  button[type=submit]
+    display: block
+    margin-left: auto
+    margin-right: auto
+
++rmin($desktop)
+  .contact-form
+    max-width: 490px
+
+
+.enq-title
+  position: relative
+  padding-top: 1em
+  padding-bottom: 1em
+  text-align: right
+  > .container
+    display: flex
+  &-parallax
+    display: inline-block
+    content: ' '
+    position: absolute
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0
+    z-index: 1
+    width: 30vw
+    max-width: 880px
+    // bg should be set with mod class
+  &__name
+    width: auto
+    position: relative
+    z-index: 2
+    // margin-top: -.85em
+    // margin-bottom: 30px
+    font-size: 30px
+    font-weight: 500
+    letter-spacing: 0.22em
+    line-height: 1.17
+    text-transform: uppercase
+    text-align: right
+    margin-right: auto
+
++rmin($tablet)
+  .enq-title
+    &__name
+      font-size: 42px
+
++rmin($desktop)
+  .enq-title
+    &__name
+      font-size: 78px

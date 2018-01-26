@@ -17,26 +17,53 @@ block content
           p I update my avaialbility below on a weekly basis, so you can see the next opportunity to book me in. 
     
     .container
-      .avail__bottom
+      .avail__bottom.avail__bottom--bigger
         .avail__status
           span I currently have
           .avail__status-line.avail__status-line--limited
             span LIMITED
           span availability until Feb 2017.
         .avail__cta
-          a(js-scrollTo data-target=".contact-form").link.link--yellow
+          a(href="#" js-scrollTo data-target=".contact-form").link.link--yellow
             span make enquiry
-            
-          
+      
+      // schedule
+      .avail__schedule
+        .schedule-card.schedule-card--disabled
+          .schedule-card__month Dec
+          .schedule-card__fill
+            //- .schedule-card__progress(width="0%")
+          .schedule-card__desc unavailable
+        .schedule-card.schedule-card--disabled
+          .schedule-card__month Jan
+          .schedule-card__fill
+            //- .schedule-card__progress(width="0%")
+          .schedule-card__desc unavailable
+        .schedule-card
+          .schedule-card__month feb
+          .schedule-card__fill
+            .schedule-card__progress(data-progress="80")
+          .schedule-card__desc 80% avalable
+        .schedule-card
+          .schedule-card__month mar
+          .schedule-card__fill
+            .schedule-card__progress(data-progress="100")
+          .schedule-card__desc 100% avalable
+        .schedule-card
+          .schedule-card__month apr
+          .schedule-card__fill
+            .schedule-card__progress(data-progress="100")
+          .schedule-card__desc 100% avalable
+        
     // CONTACT FORM
     .contact-enq
       .contact-enq__left
         // PAGE TITLE
-        .main-title
-          .main-title-parallax.--bg-yellow
+        .enq-title
+          .enq-title-parallax.--bg-yellow
           .container
-            .main-title__name make <br> an <br> enquiry
-      .contact-enq__right
+            .enq-title__name make <br> an <br> enquiry
+      .contact-enq__right.t-text-small
         p I usually undertake longer-term contracts which can mean that I'm booked-up for several weeks in advance. However, I frequently also tackle additional work in my evenings and weekends (around other commitments) so do feel free to drop me a line if you have a project you think I might be able to help you with, even if my schedule looks totally full!
         p Let me know what you need and when. I will always do what I can to fit you in.
 
@@ -55,7 +82,7 @@ block content
             input(type="text" name="contact" placeholder="")
           .ui-input-dynamic
             label Message
-            textarea(type="text" name="message" placeholder="" rows="5")
+            textarea.autoExpand(type="text" name="message" placeholder="" rows="5")
         
           button(type="submit").link.link--yellow
             span SEND MESSAGE  

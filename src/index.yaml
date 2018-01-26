@@ -12,7 +12,7 @@ PageList:
 - file: about.html
   ready: 50
 - file: availability.html
-  ready: 5
+  ready: 60
 - file: blog.html
   ready: 60
 - file: blog-article.html
