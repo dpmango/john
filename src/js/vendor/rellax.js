@@ -30,8 +30,10 @@
 
     var posY = 0; // set it to -1 so the animate function gets called at least once
     var screenY = 0;
+    var mouseY = 0;
     var posX = 0;
     var screenX = 0;
+    var mouseX = 0;
     var blocks = [];
     var pause = false;
 
@@ -206,6 +208,8 @@
     var setPosition = function() {
       var oldY = posY;
       var oldX = posX;
+      var oldMouseY = mouseY;
+      var oldMouseX = mouseX;
 
       if (window.pageYOffset !== undefined) {
         posY = window.pageYOffset;

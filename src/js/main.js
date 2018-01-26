@@ -77,16 +77,15 @@ $(document).ready(function(){
     setPageNavClass();
     headerScrollListener();
     _window.on('scroll', throttle(headerScrollListener, 10));
+    revealFooter();
+    _window.on('resize', throttle(revealFooter, 100));
 
     initPopups();
     initSliders();
-    runScrollMonitor();
+    initScrollMonitor();
     initRellax();
-
-    initMasks();
-
-    revealFooter();
-    _window.on('resize', throttle(revealFooter, 100));
+    initValidation();
+    // initMasks();
 
     // temp - developer
     _window.on('resize', debounce(setBreakpoint, 200))
@@ -144,7 +143,15 @@ $(document).ready(function(){
       $('body, html').animate({
           scrollTop: $(el).offset().top}, 1000);
       return false;
-  	});
+  	})
+    .on('click', '[js-scrollTo]', function(){
+      var el = $(this).data('target');
+      if (el){
+        $('body, html').animate({
+            scrollTop: $(el).offset().top}, 1000);
+        return false;
+      }
+    })
 
 
   // HAMBURGER TOGGLER
@@ -350,67 +357,6 @@ $(document).ready(function(){
   // UI
   ////////////
 
-  // custom selects
-  // $('.ui-select__visible').on('click', function(e){
-  //   var that = this
-  //   // hide parents
-  //   $(this).parent().parent().parent().find('.ui-select__visible').each(function(i,val){
-  //     if ( !$(val).is($(that)) ){
-  //       $(val).parent().removeClass('active')
-  //     }
-  //   });
-  //
-  //   $(this).parent().toggleClass('active');
-  // });
-  //
-  // $('.ui-select__dropdown span').on('click', function(){
-  //   // parse value and toggle active
-  //   var value = $(this).data('val');
-  //   if (value){
-  //     $(this).siblings().removeClass('active');
-  //     $(this).addClass('active');
-  //
-  //     // set visible
-  //     $(this).closest('.ui-select').removeClass('active');
-  //     $(this).closest('.ui-select').find('input').val(value);
-  //
-  //     $(this).closest('.ui-select').find('.ui-select__visible span').text(value);
-  //   }
-  //
-  // });
-
-  // handle outside click
-  // $(document).click(function (e) {
-  //   var container = new Array();
-  //   container.push($('.ui-select'));
-  //
-  //   $.each(container, function(key, value) {
-  //       if (!$(value).is(e.target) && $(value).has(e.target).length === 0) {
-  //           $(value).removeClass('active');
-  //       }
-  //   });
-  // });
-
-  // numeric input
-  // $('.ui-number span').on('click', function(e){
-  //   var element = $(this).parent().find('input');
-  //   var currentValue = parseInt($(this).parent().find('input').val()) || 0;
-  //
-  //   if( $(this).data('action') == 'minus' ){
-  //     if(currentValue <= 1){
-  //       return false;
-  //     }else{
-  //       element.val( currentValue - 1 );
-  //     }
-  //   } else if( $(this).data('action') == 'plus' ){
-  //     if(currentValue >= 99){
-  //       return false;
-  //     } else{
-  //       element.val( currentValue + 1 );
-  //     }
-  //   }
-  // });
-
   // textarea autoExpand
   $(document)
     .one('focus.autoExpand', 'textarea.autoExpand', function(){
@@ -443,15 +389,17 @@ $(document).ready(function(){
   })
 
   // Masked input
-  function initMasks(){
-    $(".js-dateMask").mask("99.99.99",{placeholder:"ДД.ММ.ГГ"});
-    $("input[type='tel']").mask("+7 (000) 000-0000", {placeholder: "+7 (___) ___-____"});
-  }
+  // function initMasks(){
+  //   $(".js-dateMask").mask("99.99.99",{placeholder:"ДД.ММ.ГГ"});
+  //   $("input[type='tel']").mask("+7 (000) 000-0000", {placeholder: "+7 (___) ___-____"});
+  // }
+
+
 
   ////////////
   // SCROLLMONITOR - WOW LIKE
   ////////////
-  function runScrollMonitor(){
+  function initScrollMonitor(){
     $('.wow').each(function(i, el){
 
       var elWatcher = scrollMonitor.create( $(el) );
@@ -568,5 +516,95 @@ $(document).ready(function(){
     _window.trigger('scroll');
     _window.scrollTop(1);
   });
+
+
+  ////////////////
+  // FORM VALIDATIONS
+  ////////////////
+  function initValidation(){
+    // jQuery validate plugin
+    // https://jqueryvalidation.org
+
+
+    // GENERIC FUNCTIONS
+    ////////////////////
+
+    var validateErrorPlacement = function(error, element) {
+      error.addClass('ui-validation');
+      error.appendTo(element.parent("div"));
+    }
+    var validateHighlight = function(element) {
+      $(element).parent('div').addClass("has-error");
+    }
+    var validateUnhighlight = function(element) {
+      $(element).parent('div').removeClass("has-error");
+    }
+    var validateSubmitHandler = function(form) {
+      $(form).addClass('loading');
+      $.ajax({
+        type: "POST",
+        url: $(form).attr('action'),
+        data: $(form).serialize(),
+        success: function(response) {
+          $(form).removeClass('loading');
+          var data = $.parseJSON(response);
+          if (data.status == 'success') {
+            // do something I can't test
+          } else {
+              $(form).find('[data-error]').html(data.message).show();
+          }
+        }
+      });
+    }
+
+    // var validatePhone = {
+    //   required: true,
+    //   normalizer: function(value) {
+    //       var PHONE_MASK = '+X (XXX) XXX-XXXX';
+    //       if (!value || value === PHONE_MASK) {
+    //           return value;
+    //       } else {
+    //           return value.replace(/[^\d]/g, '');
+    //       }
+    //   },
+    //   minlength: 11,
+    //   digits: true
+    // }
+
+    ////////
+    // FORMS
+
+
+    /////////////////////
+    // REGISTRATION FORM
+    ////////////////////
+    $("[js-contact-form]").validate({
+      errorPlacement: validateErrorPlacement,
+      highlight: validateHighlight,
+      unhighlight: validateUnhighlight,
+      submitHandler: validateSubmitHandler,
+      rules: {
+        name: "required",
+        time: "required",
+        email: {
+          required: true,
+          email: true
+        },
+        message: "required"
+        // phone: validatePhone
+      },
+      messages: {
+        name: "This field is required",
+        time: "This field is required",
+        email: {
+            required: "This field is required",
+            email: "Email is invalid"
+        },
+        message: "This field is required",
+      }
+    });
+
+  }
+
 
 });
