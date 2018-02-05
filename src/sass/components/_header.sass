@@ -9,7 +9,7 @@
   background: transparent
   &__wrapper
     display: flex
-    align-items: center
+    align-items: flex-start
     padding: 40px 30px 0 30px
 
   &__logo
@@ -25,12 +25,14 @@
       display: inline-block
       font-size: 13px
       line-height: 1.17
+      letter-spacing: 0.22em
       margin-left: 15px
       text-transform: uppercase
     &:hover
       opacity: .85
 
   &__hamburger
+    margin-top: -5px
     margin-left: auto
 
   &--transformed
@@ -42,9 +44,12 @@
     .header
       &__wrapper
         padding-top: 0px
+        align-items: center
       &__logo
         transform: scale(.75)
-
+      &__hamburger
+        margin-top: 0
+        
   &--fixed
     position: fixed
     transform: translate(0,0)
@@ -64,6 +69,7 @@
 +rmin($desktop)
   .header
     &__wrapper
+      align-items: center
       padding-top: 60px
       padding-left: 70px
       padding-right: 80px
@@ -72,4 +78,6 @@
         font-size: 90px
       span
         font-size: 17px
-        margin-left: 20px
+        margin-left: 25px
+    &__hamburger
+      margin-top: 0

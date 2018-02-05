@@ -28,6 +28,7 @@
 
     var self = Object.create(Rellax.prototype);
 
+    var mouseXListener, mouseYListener;
     var posY = 0; // set it to -1 so the animate function gets called at least once
     var screenY = 0;
     var mouseY = 0;
@@ -68,6 +69,7 @@
     // Default Settings
     self.options = {
       speed: -2,
+      mousePower: 4, // more is less
       center: false,
       round: true,
       vertical: true,
@@ -121,6 +123,9 @@
         animate();
       });
 
+      window.addEventListener('mousemove', onMouseUpdate, false)
+      window.addEventListener('mouseenter', onMouseUpdate, false)
+
       // Start the loop
       update();
 
@@ -137,6 +142,7 @@
       var dataPercentage = el.getAttribute( 'data-rellax-percentage' );
       var dataSpeed = el.getAttribute( 'data-rellax-speed' );
       var dataZindex = el.getAttribute( 'data-rellax-zindex' ) || 0;
+      var dataMousePower = el.getAttribute('data-rellax-mouse-power')
 
       // initializing at scrollY = 0 (top of browser), scrollX = 0 (left of browser)
       // ensures elements are positioned based on HTML layout.
@@ -196,11 +202,24 @@
         height: blockHeight,
         width: blockWidth,
         speed: speed,
+        mousePower: dataMousePower,
         style: style,
         transform: transform,
         zindex: dataZindex
       };
     };
+
+    // set mouse postion (mouseY, mouseX)
+    var onMouseUpdate = function(e){
+      mouseXListener = e.pageX;
+      mouseYListener = e.pageY;
+    }
+    function getMouseX() {
+      return mouseXListener;
+    }
+    function getMouseY() {
+      return mouseYListener;
+    }
 
     // set scroll position (posY, posX)
     // side effect method is not ideal, but okay for now
@@ -223,6 +242,16 @@
         posX = (document.documentElement || document.body.parentNode || document.body).scrollLeft;
       }
 
+      // Get new mouse values to compare
+      // invert X and Y to get fancy effect
+      mouseY = getMouseX();
+      mouseX = getMouseY();
+
+      if (oldMouseY != mouseY || oldMouseX != mouseX ){
+        // mouse moved, return true
+        return true;
+      }
+
       if (oldY != posY && self.options.vertical) {
         // scroll changed, return true
         return true;
@@ -233,7 +262,7 @@
         return true;
       }
 
-      // scroll did not change
+      // scroll did not change. No render
       return false;
     };
 
@@ -266,8 +295,10 @@
     // Transform3d on parallax element
     var animate = function() {
       for (var i = 0; i < self.elems.length; i++){
-        var percentageY = ((posY - blocks[i].top + screenY) / (blocks[i].height + screenY));
-        var percentageX = ((posX - blocks[i].left + screenX) / (blocks[i].width + screenX));
+        // var percentageY = ((posY - blocks[i].top + screenY) / (blocks[i].height + screenY));
+        // var percentageX = ((posX - blocks[i].left + screenX) / (blocks[i].width + screenX));
+        var percentageY = ((posY - blocks[i].top + screenY - (mouseY / self.options.mousePower)) / (blocks[i].height + screenY));
+        var percentageX = ((posX - blocks[i].left + screenX - (mouseX / self.options.mousePower * 2)) / (blocks[i].width + screenX));
 
         // Subtracting initialize value, so element stays in same spot as HTML
         var positions = updatePosition(percentageX, percentageY, blocks[i].speed);// - blocks[i].baseX;

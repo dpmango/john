@@ -6,8 +6,8 @@ block content
   
   // PROJECT
   .project
-    .project-hero
-      .project-hero__parallax.--bg-pink
+    .project-hero.wow(data-animation-class="wowFadeLeft")
+      .project-hero__parallax.--bg-pink(js-rellax data-rellax-speed='2')
       .container
         .project-hero__top project
         .project-hero__title.t-title creative <br> portfolio
@@ -19,10 +19,10 @@ block content
     .container
       .project-scope-wrap
         
-        .project-scope
+        .project-scope.wow
           .project-scope__title
-            .project-scope__parallax.--bg-pink
-            .project-scope__title-name.t-title Code <br> base
+            .project-scope__parallax.--bg-pink(js-rellax data-rellax-speed='.5')
+            .project-scope__title-name.t-title Code<br> base
           .project-scope__list
             span HTML5
             span CSS
@@ -30,7 +30,7 @@ block content
             span WORDPRESS
             span BOOTSTRAP
         
-        .project-scope-text
+        .project-scope-text.wow
           .project__paragraph
             .project__subtitle My Role
             .t-text-reg
@@ -41,10 +41,10 @@ block content
               p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent iaculis fringilla metus, id pretium magna. Suspendisse potenti. Aenean tincidunt, quam eget placerat viverra, magna nisl scelerisque ligula.
   
   // details left
-  .project-details.--left
+  .project-details.--left.wow
     .project-details__wrapper
       .project-details__figure
-        .project-details__parallax.--bg-pink
+        .project-details__parallax.--bg-pink(js-rellax data-rellax-speed='.5')
         img(src='img/project-placeholder-1.png' srcset='img/project-placeholder-1@2x.png 2x')
       .project-details__content
         .container
@@ -54,7 +54,7 @@ block content
               p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent iaculis fringilla metus, id pretium magna. Suspendisse potenti
   
   // details center
-  .project-details.--center
+  .project-details.--center.wow
     .container
       .project-details__wrapper
         .project-details__figure
@@ -66,10 +66,10 @@ block content
               p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent iaculis fringilla metus, id pretium magna.
   
   // details right 
-  .project-details.--right
+  .project-details.--right.wow
     .project-details__wrapper
       .project-details__figure
-        .project-details__parallax.--bg-pink
+        .project-details__parallax.--bg-pink(js-rellax data-rellax-speed='.5')
         picture
           source(media="(max-width: 768px)" srcset="img/project-placeholderMobile-3.png 1x, img/project-placeholderMobile-3@2x.png 2x")
           source(media="(min-width: 768px)" srcset="img/project-placeholder-3.png 1x, img/project-placeholder-3@2x.png 2x")
@@ -81,17 +81,40 @@ block content
             .project__subtitle Title
             .t-text-reg
               p Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      
+              
+  // details center
+  .project-details.--center.--center100.wow
+    .container
+      .project-details__wrapper
+        .project-details__figure
+          .project-details__parallax.--bg-pink(js-rellax data-rellax-speed='.5')
+          img(src='img/project-placeholder-6.png' srcset='img/project-placeholder-6@2x.png 2x')
+        .project-details__content
+          .project__paragraph
+            .project__subtitle Title
+            .t-text-reg
+              p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent iaculis fringilla metus, id pretium magna.
+                
                         
   // NEXT PROJECT
-  .next-project
+  .next-project.wow(data-animation-class="wowFadeRight")
     .next-project__card.np-card
-      .np-card__top PROJECT
+      .np-card__top Next PROJECT
       .np-card__title national broadcaster
       .portfolio-figure.np-card
         .portfolio-figure-bg.--bg-blue
         a(href="#").portfolio-figure__img-holder
           img(src='img/portfolio-project_3.png' srcset='img/portfolio-project_3@2x.png 2x')
     .next-project__cta
-      a(href="projects").link.link--blue
+      a(href="portfolio.html").link.link--blue
         span All projects
+
+
+  // HOME LINES :: START
+  .home-lines
+    .home-lines__wrapper
+      picture
+        source(media="(max-width: 992px)" srcset="img/heroLinesBg.png 1x, img/heroLinesBg@2x.png 2x")
+        source(media="(min-width: 992px)" srcset="img/heroLinesBgDesktop.png 1x, img/heroLinesBgDesktop@2x.png 2x")
+        img.home-lines__bg(src="img/heroLinesBg.png")
+          

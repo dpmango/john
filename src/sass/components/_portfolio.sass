@@ -8,12 +8,14 @@
 
 +rmin($tablet)
   .portfolio
+    margin-top: 25px
     &__wrapper
       flex-direction: row
       flex-wrap: wrap
 
 +rmin($desktop)
   .portfolio
+    margin-top: 40px
     &__wrapper
       padding-left: 30px
       padding-right: 30px
@@ -24,7 +26,7 @@
   min-height: 1px
   width: 100%
   max-width: 400px
-  margin: 0px auto 20px auto
+  margin: 0px auto 35px auto
   &__name
     display: inline-block
     max-width: 300px
@@ -40,20 +42,28 @@
       // hover color to set individually with mod class
       // color: $colorBlue
   &__short
+    position: relative
+    z-index: 2
     max-width: 300px
     font-size: 14px
     line-height: 1.42
+    margin-top: 5px
     letter-spacing: 0.04em
+    p
+      line-height: 1.5
+      &:first-child
+        margin-top: 0
 
 .portfolio-figure
   position: relative
+  z-index: 1
   margin-top: 35px
   &-bg
     position: absolute
     top: 0
     left: 0
     width: 68%
-    height: 50%
+    height: 55%
     z-index: 1
   &__img-holder
     display: block
@@ -71,13 +81,14 @@
 +rmin($tablet)
   .portfolio-item
     flex: 0 1 50%
-    margin-bottom: 40px
     &:nth-child(odd)
       margin-left: 0
       padding-right: 20px
     &:nth-child(even)
       margin-right: 0
       padding-left: 20px
+    &__short
+      margin-top: 10px
   .portfolio-figure
     &__img-holder
       transform: translateX(8%)
@@ -85,27 +96,30 @@
 +rmin($desktop)
   .portfolio-item
     max-width: 580px
-    margin-bottom: 60px
-    &:nth-child(odd)
-      padding-right: 40px
-    &:nth-child(even)
-      padding-left: 40px
+    margin-bottom: 40px
     &__name
       font-size: 28px
       max-width: 400px
       padding-left: 30px
     &__short
-      font-size: 14px
+      font-size: 16px
       max-width: 400px
       padding-left: 30px
   .portfolio-figure
     margin-top: 45px
+    &-bg
+      height: 60%
+      width: 66%
 
 +rmin(1600)
   .portfolio-item
     flex: 0 1 33.3%
     padding-right: 40px
     padding-left: 40px
+    &:nth-child(odd)
+      padding-right: 40px
+    &:nth-child(even)
+      padding-left: 40px
     &:nth-child(1n)
       margin-right: auto
     &:nth-child(2n)

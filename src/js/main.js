@@ -83,7 +83,7 @@ $(document).ready(function(){
     // initPopups();
     // initSliders();
     initScrollMonitor();
-    initRellax();
+    // initRellax();
     initValidation();
     // initMasks();
     setScheduleProgress();
@@ -490,7 +490,9 @@ $(document).ready(function(){
     if (_document.find('[js-rellax]').length > 0){
       rellax = new Rellax('[js-rellax]', {
         speed: -2,
-        center: true
+        mousePower: 8,
+        center: true,
+        horizontal: true
       });
     }
   }
@@ -543,7 +545,7 @@ $(document).ready(function(){
     closeMenu();
 
     _window.trigger('scroll');
-    _window.scrollTop(1);
+    _window.scrollTop(2);
   });
 
 

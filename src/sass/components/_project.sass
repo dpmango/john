@@ -1,7 +1,7 @@
 .project
   &-hero
     position: relative
-    margin-top: 35px
+    margin-top: 37px
     width: 85vw
     &__parallax
       position: absolute
@@ -15,7 +15,7 @@
       z-index: 2
     &__top
       position: absolute
-      top: calc(-2em - 10px)
+      top: calc(-2em - 12px)
       left: 30px
       font-size: 14px
       font-weight: 500
@@ -48,7 +48,7 @@
 .project-scope-wrap
   display: flex
   flex-direction: column
-  margin-top: 20px
+  margin-top: 0px
 
 /* partly cloned from skills - about
 .project-scope
@@ -83,10 +83,11 @@
       letter-spacing: 0.22em
       font-weight: 500
       text-transform: uppercase
-      margin-bottom: .5em
+      margin-bottom: .1em
 
 .project-scope-text
   flex: 0 0 auto
+  margin-top: 10px
 
 
 
@@ -97,15 +98,21 @@
     display: flex
     flex-direction: column
   &__figure
+    position: relative
+    z-index: 1
     img
       position: relative
       z-index: 2
       max-width: 100%
+  &__content
+    position: relative
+    z-index: 2
+    margin-top: -20px
   &.--left
     .project-details
       &__figure
         position: relative
-        width: 75vw
+        width: 78vw
         padding-bottom: 10%
       &__parallax
         position: absolute
@@ -123,6 +130,18 @@
         margin-left: auto
         margin-right: auto
         text-align: center
+      &__parallax
+        position: absolute
+        left: calc(-30px - 10%)
+        bottom: 0%
+        height: 35%
+        width: 55vw
+        z-index: 1
+  &.--center100
+    .project-details
+      &__figure
+        width: 100%
+        padding-bottom: 10%
 
   &.--right
     .project-details
